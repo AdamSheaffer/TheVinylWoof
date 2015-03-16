@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheVinylWoof", "TheVinylWoof\TheVinylWoof.csproj", "{E661B91F-D211-49F8-A9A9-8AF6AC10748E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheVinylWoof.Tests", "TheVinylWoof.Tests\TheVinylWoof.Tests.csproj", "{0BCEF655-39FF-41B9-A464-BDE7B67A0094}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E661B91F-D211-49F8-A9A9-8AF6AC10748E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E661B91F-D211-49F8-A9A9-8AF6AC10748E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E661B91F-D211-49F8-A9A9-8AF6AC10748E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E661B91F-D211-49F8-A9A9-8AF6AC10748E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCEF655-39FF-41B9-A464-BDE7B67A0094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCEF655-39FF-41B9-A464-BDE7B67A0094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCEF655-39FF-41B9-A464-BDE7B67A0094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCEF655-39FF-41B9-A464-BDE7B67A0094}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
