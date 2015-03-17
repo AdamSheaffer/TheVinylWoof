@@ -10,6 +10,7 @@ namespace TheVinylWoof.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using TheVinylWoof.Data;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +62,8 @@ namespace TheVinylWoof.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<VinylWoofContext>().To<VinylWoofContext>().InRequestScope();
+            kernel.Bind<IVinylWoofRepository>().To<VinylWoofRepository>().InRequestScope();
         }        
     }
 }

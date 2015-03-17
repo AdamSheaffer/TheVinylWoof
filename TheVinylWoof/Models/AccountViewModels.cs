@@ -79,6 +79,25 @@ namespace TheVinylWoof.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name="Address")]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [Display(Name = "Zip")]
+        public int Zip { get; set; }
+
+        [Display(Name="Bio")]
+        public string Bio { get; set; }
     }
 
     public class ResetPasswordViewModel

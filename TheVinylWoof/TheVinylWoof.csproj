@@ -187,14 +187,30 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Data\IVinylWoofRepository.cs" />
+    <Compile Include="Data\VinylWoofContext.cs" />
+    <Compile Include="Data\VinylWoofRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503162152031_Profile.cs" />
+    <Compile Include="Migrations\201503162152031_Profile.Designer.cs">
+      <DependentUpon>201503162152031_Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503170009576_User.cs" />
+    <Compile Include="Migrations\201503170009576_User.Designer.cs">
+      <DependentUpon>201503170009576_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503170030180_numRatings.cs" />
+    <Compile Include="Migrations\201503170030180_numRatings.Designer.cs">
+      <DependentUpon>201503170030180_numRatings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -264,6 +280,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201503162152031_Profile.resx">
+      <DependentUpon>201503162152031_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503170009576_User.resx">
+      <DependentUpon>201503170009576_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503170030180_numRatings.resx">
+      <DependentUpon>201503170030180_numRatings.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -14,7 +14,7 @@ namespace TheVinylWoof.Models
         public string Bio { get; set; }
         public int Credits { get; set; }
         public decimal Rating { get; set; }
-        public virtual ICollection<Album> Albums { get; set; }
+        public ICollection<Album> Albums { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
