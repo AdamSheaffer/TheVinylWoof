@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +10,10 @@ namespace TheVinylWoof.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        [Key, ForeignKey("ApplicationUser")]
+        public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
         public string Username { get; set; }
         public int Credits { get; set; }
         public decimal Rating { get; set; }

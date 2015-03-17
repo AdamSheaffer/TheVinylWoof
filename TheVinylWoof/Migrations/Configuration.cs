@@ -24,7 +24,7 @@ namespace VinylWoof.Migrations
                     Genre = "Classic Rock",
                     Condition = "Good",
                     Cost = 3,
-                    UserId = 1,
+                    UserId = "11",
                     IsSold = false,
                     Description = "Great album"
                 },
@@ -36,7 +36,7 @@ namespace VinylWoof.Migrations
                      Genre = "Classic Rock",
                      Condition = "Good",
                      Cost = 3,
-                     UserId = 1,
+                     UserId = "11",
                      IsSold = false,
                      Description = "Great album"
                  },
@@ -48,7 +48,7 @@ namespace VinylWoof.Migrations
                      Genre = "Hip-Hop",
                      Condition = "Excellent",
                      Cost = 3,
-                     UserId = 2,
+                     UserId = "12",
                      IsSold = false,
                      Description = "Great album"
                  },
@@ -60,7 +60,7 @@ namespace VinylWoof.Migrations
                    Genre = "Blues",
                    Condition = "Good",
                    Cost = 4,
-                   UserId = 2,
+                   UserId = "12",
                    IsSold = false,
                    Description = "Great album"
                }
@@ -71,7 +71,7 @@ namespace VinylWoof.Migrations
                {
                    Username = "Adam",
                    Bio = "Here's Adam's Story",
-                   Id = 1,
+                   Id = "11",
                    Credits = 5,
                    Rating = 4
                },
@@ -79,7 +79,7 @@ namespace VinylWoof.Migrations
                {
                    Username = "Bob",
                    Bio = "Here's Bob's Story",
-                   Id = 2,
+                   Id = "12",
                    Credits = 7,
                    Rating = 4
                }

@@ -19,6 +19,8 @@ namespace TheVinylWoof.Models
         public string City { get; set; }
         public string State { get; set; }
         public int Zip { get; set; }
+        public virtual User User { get; set; }
+        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

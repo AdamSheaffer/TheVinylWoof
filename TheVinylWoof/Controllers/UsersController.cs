@@ -31,7 +31,7 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/users/{id}")]
-        public User Get(int id)
+        public User Get(string id)
         {
             return _repo.GetUsersIncludingAlbums().Where(x => x.Id == id).First();
         }
