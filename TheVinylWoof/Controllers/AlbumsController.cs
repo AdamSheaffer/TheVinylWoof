@@ -49,15 +49,15 @@ namespace VinylWoof.Controllers
             return _repo.GetAlbums().Where(a => a.UserId == profileid);
         }
 
-        public HttpResponseMessage Post(int userId, [FromBody]Album newAlbum)
-        {
-            newAlbum.UserId = userId;
+        //public HttpResponseMessage Post(int userId, [FromBody]Album newAlbum)
+        //{
+        //    newAlbum.UserId = userId;
 
-            if (_repo.AddAlbum(newAlbum) && _repo.Save())
-            {
-                return Request.CreateResponse(HttpStatusCode.Created, newAlbum);
-            }
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
-        }
+        //    if (_repo.AddAlbum(newAlbum) && _repo.Save())
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.Created, newAlbum);
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.BadRequest);
+        //}
     }
 }

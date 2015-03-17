@@ -13,5 +13,7 @@ namespace TheVinylWoof.Data
         IQueryable<Album> GetAlbumsFromUser(int userId);
         IQueryable<User> GetUsers();
         IQueryable<User> GetUserById(int id);
+        bool Save();
+        bool AddAlbum(Album newAlbum);
     }
 }

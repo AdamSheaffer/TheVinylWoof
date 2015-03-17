@@ -34,5 +34,33 @@ namespace TheVinylWoof.Data
         {
             return _ctx.Users.Where(x => x.Id == id);
         }
+
+
+        public bool Save()
+        {
+            try
+            {
+                return _ctx.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                //Log this error
+                return false;
+            }
+        }
+
+        public bool AddAlbum(Models.Album newAlbum)
+        {
+            try
+            {
+                _ctx.Albums.Add(newAlbum);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //Log error
+                return false;
+            }
+        }
     }
 }
