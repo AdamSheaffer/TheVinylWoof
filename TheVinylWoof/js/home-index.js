@@ -33,4 +33,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
 
 .controller("newAlbumController", function ($scope, $http) {
     $scope.newAlbum = {};
+
+    $scope.save = function () {
+        $http.post
+    }
 });
