@@ -13,7 +13,7 @@ namespace TheVinylWoof.Tests
             throw new NotImplementedException();
         }
 
-        public IQueryable<Models.Album> GetAlbumsFromUser(string userId)
+        public IQueryable<Models.Album> GetAlbumsFromUser(int userId)
         {
             throw new NotImplementedException();
         }
@@ -23,7 +23,7 @@ namespace TheVinylWoof.Tests
             throw new NotImplementedException();
         }
 
-        public IQueryable<Models.User> GetUserById(string id)
+        public IQueryable<Models.User> GetUserById(int id)
         {
             throw new NotImplementedException();
         }

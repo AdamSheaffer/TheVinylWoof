@@ -11,15 +11,8 @@ namespace TheVinylWoof.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string Bio { get; set; }
-        public int Credits { get; set; }
-        public decimal Rating { get; set; }
-        public ICollection<Album> Albums { get; set; }
-        public string StreetAddress { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public int Zip { get; set; }
-        public virtual User User { get; set; }
+        
+        //public virtual User Profile { get; set; }
         
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

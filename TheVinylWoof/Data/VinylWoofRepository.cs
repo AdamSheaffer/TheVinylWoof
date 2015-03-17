@@ -19,7 +19,7 @@ namespace TheVinylWoof.Data
             return _ctx.Albums;
         }
 
-        public IQueryable<Models.Album> GetAlbumsFromUser(string userId)
+        public IQueryable<Models.Album> GetAlbumsFromUser(int userId)
         {
             return _ctx.Albums.Where(x => x.UserId == userId);
         }
@@ -30,7 +30,7 @@ namespace TheVinylWoof.Data
             return _ctx.Users;
         }
 
-        public IQueryable<Models.User> GetUserById(string id)
+        public IQueryable<Models.User> GetUserById(int id)
         {
             return _ctx.Users.Where(x => x.Id == id);
         }

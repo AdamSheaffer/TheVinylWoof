@@ -10,10 +10,11 @@ namespace TheVinylWoof.Models
 {
     public class User
     {
-        [Key, ForeignKey("ApplicationUser")]
-        public string Id { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        //[Key, ForeignKey("ApplicationUser")]
+        //public string Id { get; set; }
+        //public virtual ApplicationUser ApplicationUser { get; set; }
 
+        public int Id { get; set; }
         public string Username { get; set; }
         public int Credits { get; set; }
         public decimal Rating { get; set; }
