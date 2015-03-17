@@ -35,5 +35,15 @@ namespace TheVinylWoof.Controllers
         {
             return _repo.GetUsersIncludingAlbums().Where(x => x.Id == id).First();
         }
+
+        [Route("api/users")]
+        public HttpResponseMessage Post(User newUser)
+        {
+            if (_repo.AddUser(newUser) && _repo.Save())
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, newUser);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
     }
 }
