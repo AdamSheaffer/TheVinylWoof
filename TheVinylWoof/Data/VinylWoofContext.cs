@@ -13,6 +13,7 @@ namespace TheVinylWoof.Data
             : base("DefaultConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<Album> Albums { get; set; }

@@ -10,7 +10,8 @@ namespace VinylWoof.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(TheVinylWoof.Data.VinylWoofContext context)
