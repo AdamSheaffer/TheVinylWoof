@@ -1,0 +1,70 @@
+﻿<h1>Check out the new record page....</h1>
+<form name="newAlbumForm" novalidate>
+    <fieldset>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <span class="has-error" ng-show="newAlbumForm.title.$error.required">*</span>
+            <input type="text" name="title" class="form-control" ng-model="newAlbum.title" required />
+        </div>
+        <div class="form-group">
+            <label for="artist">Artist</label>
+            <span class="has-error" ng-show="newAlbumForm.artist.$error.required">*</span>
+            <input type="text" name="artist" class="form-control" ng-model="newAlbum.artist" required />
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <span class="has-error" ng-show="newAlbumForm.genre.$error.required">*</span>
+            <select name="genre" class="form-control" ng-model="newAlbum.genre" required>
+                <option value="altRock">Alternative Rock</option>
+                <option value="blues">Blues</option>
+                <option value="vocal">Broadway &#38 Vocal</option>
+                <option value="childrens">Children's Music</option>
+                <option value="christian">Christian Music</option>
+                <option value="classicRock">Classic Rock</option>
+                <option value="comedy">Comedy &#38 Spoken Work</option>
+                <option value="country">Country</option>
+                <option value="dance">Dance &#38 EDM</option>
+                <option value="folk">Folk</option>
+                <option value="gospel">Gospel</option>
+                <option value="holiday">Holiday</option>
+                <option value="jazz">Jazz</option>
+                <option value="latin">Latin</option>
+                <option value="metal">Metal</option>
+                <option value="newAge">New Age</option>
+                <option value="Pop">Pop</option>
+                <option value="rb">R&#38B</option>
+                <option value="rap">Rap &#38 Hip-Hop</option>
+                <option value="reggae">Reggae</option>
+                <option value="rock">Rock</option>
+                <option value="world">World</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="condition">Condition</label>
+            <span class="has-error" ng-show="newAlbumForm.condition.$error.required">*</span>
+            <select name="condition" class="form-control" ng-model="newAlbum.condition" required>
+                <option value="perfect">Perfect</option>
+                <option value="great">Great</option>
+                <option value="good">Good</option>
+                <option value="ok">Decent</option>
+                <option value="poor">Poor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <span class="has-error" ng-show="newAlbumForm.description.$error.required">*</span>
+            <textarea name="description" class="form-control" ng-model="newAlbum.description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="cost">Woofie</label>
+            <span class="has-error" ng-show="newAlbumForm.cost.$error.required">*</span>
+            <span class="has-error" ng-show="newAlbumForm.cost.$error.pattern">*</span>
+            <input type="text" name="cost" class="form-control" ng-model="newAlbum.cost" required ng-pattern="/^[0-9]{1,7}$/" />
+        </div>
+        <div>
+            <a href="/#/" class="btn">Search Album Art</a>
+            <button class="=btn" ng-disabled="newAlbumForm.$invaild" ng-click="save()">Submit</button>
+            <a href="/#/" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>
