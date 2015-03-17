@@ -11,7 +11,7 @@ using System.Web.Http.Description;
 using TheVinylWoof.Data;
 using TheVinylWoof.Models;
 
-namespace VinylWoof.Controllers
+namespace TheVinylWoof.Controllers
 {
     public class AlbumsController : ApiController
     {
@@ -43,7 +43,7 @@ namespace VinylWoof.Controllers
             return albums;
         }
 
-        [Route("api/profiles/{profileid}/albums")]
+        [Route("api/users/{profileid}/albums")]
         public IEnumerable<Album> GetUserAlbums(int profileid)
         {
             return _repo.GetAlbums().Where(a => a.UserId == profileid);

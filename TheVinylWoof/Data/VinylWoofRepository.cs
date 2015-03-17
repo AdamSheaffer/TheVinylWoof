@@ -62,5 +62,26 @@ namespace TheVinylWoof.Data
                 return false;
             }
         }
+
+
+        public IQueryable<Models.User> GetUsersIncludingAlbums()
+        {
+            return _ctx.Users.Include("Albums");
+        }
+
+
+        public bool AddUser(Models.User newUser)
+        {
+            try
+            {
+                _ctx.Users.Add(newUser);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //Log error
+                return false;
+            }
+        }
     }
 }

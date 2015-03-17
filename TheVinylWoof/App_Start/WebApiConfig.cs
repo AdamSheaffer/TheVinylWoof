@@ -24,7 +24,7 @@ namespace TheVinylWoof
 
             config.Routes.MapHttpRoute(
                 name: "NewAlbumRoute",
-                routeTemplate: "api/profiles/{profileid}/albums/{id}",
+                routeTemplate: "api/users/{userid}/albums/{id}",
                 defaults: new { controller = "albums", id = RouteParameter.Optional }
             );
 

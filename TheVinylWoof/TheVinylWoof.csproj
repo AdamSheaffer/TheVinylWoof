@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\IVinylWoofRepository.cs" />
     <Compile Include="Data\VinylWoofContext.cs" />
     <Compile Include="Data\VinylWoofRepository.cs" />
