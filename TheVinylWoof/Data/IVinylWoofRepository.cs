@@ -10,12 +10,12 @@ namespace TheVinylWoof.Data
     public interface IVinylWoofRepository
     {
         IQueryable<Album> GetAlbums();
-        IQueryable<Album> GetAlbumsFromUser(int userId);
-        IQueryable<User> GetUsers();
-        IQueryable<User> GetUserById(int id);
-        IQueryable<User> GetUsersIncludingAlbums();
+        IQueryable<Album> GetAlbumsFromUser(string userId);
+        IQueryable<ApplicationUser> GetUsers();
+        IQueryable<ApplicationUser> GetUserById(string id);
+        IQueryable<ApplicationUser> GetUsersIncludingAlbums();
         bool Save();
         bool AddAlbum(Album newAlbum);
-        bool AddUser(User newUser);
+        bool AddUser(ApplicationUser newUser);
     }
 }

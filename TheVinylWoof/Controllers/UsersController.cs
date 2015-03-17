@@ -23,21 +23,21 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/users")]
-        public IEnumerable<User> Get()
+        public IEnumerable<ApplicationUser> Get()
         {
             return _repo.GetUsersIncludingAlbums()
-                .OrderBy(n => n.Username)
+                .OrderBy(n => n.Email)
                 .ToList();
         }
 
         [Route("api/users/{id}")]
-        public User Get(int id)
+        public ApplicationUser Get(string id)
         {
             return _repo.GetUsersIncludingAlbums().Where(x => x.Id == id).First();
         }
 
         [Route("api/users")]
-        public HttpResponseMessage Post(User newUser)
+        public HttpResponseMessage Post(ApplicationUser newUser)
         {
             if (_repo.AddUser(newUser) && _repo.Save())
             {

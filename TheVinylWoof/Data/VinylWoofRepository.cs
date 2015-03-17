@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TheVinylWoof.Models;
 
 namespace TheVinylWoof.Data
 {
@@ -19,20 +20,20 @@ namespace TheVinylWoof.Data
             return _ctx.Albums;
         }
 
-        public IQueryable<Models.Album> GetAlbumsFromUser(int userId)
+        public IQueryable<Models.Album> GetAlbumsFromUser(string userId)
         {
             return _ctx.Albums.Where(x => x.UserId == userId);
         }
 
 
-        public IQueryable<Models.User> GetUsers()
+        public IQueryable<Models.ApplicationUser> GetUsers()
         {
-            return _ctx.Users;
+            return _ctx.ProfileUsers;
         }
 
-        public IQueryable<Models.User> GetUserById(int id)
+        public IQueryable<Models.ApplicationUser> GetUserById(string id)
         {
-            return _ctx.Users.Where(x => x.Id == id);
+            return _ctx.ProfileUsers.Where(x => x.Id == id);
         }
 
 
@@ -64,17 +65,17 @@ namespace TheVinylWoof.Data
         }
 
 
-        public IQueryable<Models.User> GetUsersIncludingAlbums()
+        public IQueryable<ApplicationUser> GetUsersIncludingAlbums()
         {
-            return _ctx.Users.Include("Albums");
+            return _ctx.ProfileUsers.Include("Albums");
         }
 
 
-        public bool AddUser(Models.User newUser)
+        public bool AddUser(Models.ApplicationUser newUser)
         {
             try
             {
-                _ctx.Users.Add(newUser);
+                _ctx.ProfileUsers.Add(newUser);
                 return true;
             }
             catch (Exception ex)

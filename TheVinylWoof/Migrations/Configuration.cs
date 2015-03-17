@@ -24,7 +24,7 @@ namespace VinylWoof.Migrations
                     Genre = "Classic Rock",
                     Condition = "Good",
                     Cost = 3,
-                    UserId = 1,
+                    UserId = "1",
                     IsSold = false,
                     Description = "Great album"
                 },
@@ -36,7 +36,7 @@ namespace VinylWoof.Migrations
                      Genre = "Classic Rock",
                      Condition = "Good",
                      Cost = 3,
-                     UserId = 1,
+                     UserId = "1",
                      IsSold = false,
                      Description = "Great album"
                  },
@@ -48,7 +48,7 @@ namespace VinylWoof.Migrations
                      Genre = "Hip-Hop",
                      Condition = "Excellent",
                      Cost = 3,
-                     UserId = 2,
+                     UserId = "2",
                      IsSold = false,
                      Description = "Great album"
                  },
@@ -60,26 +60,26 @@ namespace VinylWoof.Migrations
                    Genre = "Blues",
                    Condition = "Good",
                    Cost = 4,
-                   UserId = 2,
+                   UserId = "2",
                    IsSold = false,
                    Description = "Great album"
                }
             );
 
-            context.Users.AddOrUpdate(i => i.Username,
-               new User
+            context.ProfileUsers.AddOrUpdate(i => i.Email,
+               new ApplicationUser
                {
-                   Username = "Adam",
+                   Email = "Adam.e.Sheaffer@gmail.com",
                    Bio = "Here's Adam's Story",
-                   Id = 1,
+                   Id = "1",
                    Credits = 5,
                    Rating = 4
                },
-               new User
+               new ApplicationUser
                {
-                   Username = "Bob",
+                   Email = "Bob@bob.com",
                    Bio = "Here's Bob's Story",
-                   Id = 2,
+                   Id = "2",
                    Credits = 7,
                    Rating = 4
                }
