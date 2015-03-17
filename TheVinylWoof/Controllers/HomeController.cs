@@ -20,7 +20,7 @@ namespace TheVinylWoof.Controllers
         {
             var users = _repo.GetUsers().ToList();
 
-            return View(users);
+            return View();
         }
 
         public ActionResult About()
