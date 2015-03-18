@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TheVinylWoof.Models;
+using System.Data.Entity;
 
 namespace TheVinylWoof.Data
 {
@@ -28,7 +29,7 @@ namespace TheVinylWoof.Data
 
         public IQueryable<Models.ApplicationUser> GetProfileUsers()
         {
-            return _ctx.Users;
+            return _ctx.Users.Include("Albums");
         }
 
         public IQueryable<Models.ApplicationUser> GetProfileUserById(string id)
@@ -67,7 +68,7 @@ namespace TheVinylWoof.Data
 
         public IQueryable<ApplicationUser> GetProfileUsersIncludingAlbums()
         {
-            return _ctx.Users;
+            return _ctx.Users.Include("Albums");
         }
 
 

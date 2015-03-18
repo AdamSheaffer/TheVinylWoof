@@ -151,7 +151,13 @@ namespace TheVinylWoof.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, 
+                    Email = model.Email,
+                    Bio = model.Bio, 
+                    StreetAddress = model.StreetAddress,
+                    City = model.City,
+                    State = model.State,
+                    Zip = model.Zip};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

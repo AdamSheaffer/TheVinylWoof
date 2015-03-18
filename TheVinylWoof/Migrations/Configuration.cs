@@ -24,7 +24,7 @@ namespace VinylWoof.Migrations
                     Genre = "Classic Rock",
                     Condition = "Good",
                     Cost = 3,
-                    UserId = "1",
+                    UserId = "2d427ab5-04d1-41a4-8354-255cedc78bd8",
                     IsSold = false,
                     Description = "Great album",
                     CoverLocation = "http://ecx.images-amazon.com/images/I/91uC0QuxoML._SL1500_.jpg"
@@ -37,7 +37,7 @@ namespace VinylWoof.Migrations
                      Genre = "Classic Rock",
                      Condition = "Good",
                      Cost = 3,
-                     UserId = "1",
+                     UserId = "2d427ab5-04d1-41a4-8354-255cedc78bd8",
                      IsSold = false,
                      Description = "Great album",
                      CoverLocation = "http://ecx.images-amazon.com/images/I/51481od8IuL.jpg"
@@ -53,7 +53,7 @@ namespace VinylWoof.Migrations
                      UserId = "85bddf62-9670-4aa9-8d0b-fd94ff3a271f",
                      IsSold = false,
                      Description = "Great album",
-                     CoverLocation = "http://images.amazon.com/images/G/01/richmedia/images/cover.gif"
+                     CoverLocation = "http://ecx.images-amazon.com/images/I/71Ubu92jsAL._SL1500_.jpg"
                  },
 
                new Album
