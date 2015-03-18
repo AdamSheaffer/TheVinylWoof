@@ -1009,6 +1009,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="templates\albumDetails.html" />
     <Content Include="templates\homeView.html" />
     <Content Include="templates\newRecord.html" />
     <Content Include="Web.config">

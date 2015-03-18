@@ -36,39 +36,10 @@
         <a>
             <img ng-src="{{album.coverLocation}}" alt="Album Cover" class="album-art" />
         </a>
-        <h5>{{album.title}}</h5>
-        <h5>{{album.artist}}</h5>
-        <h5>{{album.cost}}</h5>
-    </div>
-
-    <div class="col-sm-4 item-block item-left">
-        <a>
-            <img src="#" alt="Album Cover" class="album-art" />
+        <a href="/#/AlbumDetails/{{album.id}}">
+            <h4>Title: {{album.title}}</h4>
         </a>
-        <div class="item-info">
-            <h5>Title</h5>
-            <h5>Artist</h5>
-            <h5>Woofie</h5>
-        </div>
-    </div>
-    <div class="col-sm-4 item-block">
-        <a>
-            <img src="#" alt="Album Cover" class="album-art" />
-        </a>
-        <div class="item-info">
-            <h5>Title</h5>
-            <h5>Artist</h5>
-            <h5>Woofie</h5>
-        </div>
-    </div>
-    <div class="col-sm-4 item-block item-right">
-        <a>
-            <img src="#" alt="Album Cover" class="album-art" />
-        </a>
-        <div class="item-info">
-            <h5>Title</h5>
-            <h5>Artist</h5>
-            <h5>Woofie</h5>
-        </div>
+        <h4>Artist: {{album.artist}}</h4>
+        <h4>Woofie: {{album.cost}}</h4>
     </div>
 </div>

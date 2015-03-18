@@ -11,12 +11,14 @@ angular.module("VinylWoofApp", ["ngRoute"])
             controller: "newAlbumController",
             templateUrl: "/templates/newRecord.html"
         })
+        .when("/AlbumDetails/:id", {
+            controller: "albumDetailsController",
+            templateUrl: "/templates/albumDetails.html"
+        })
         .otherwise({ redirectTo: "/" });
 })
 
 .controller("albumsController", function ($scope, $http) {
-    $scope.name = "Adam Sheaffer";
-    $scope.dataCount = 0;
     $scope.data = [];
 
     $http.get("/api/albums")
@@ -37,4 +39,9 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $scope.save = function () {
         $http.post
     }
+})
+
+.controller("albumDetailsController", function ($scope, $http, $routeParams) {
+    console.log($routeParams);
+    alert("hit controller");
 });
