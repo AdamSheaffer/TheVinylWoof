@@ -49,6 +49,12 @@ namespace TheVinylWoof.Controllers
             return _repo.GetAlbums().Where(a => a.UserId == profileid);
         }
 
+        [Route("api/albums/{albumid}/user")]
+        public IEnumerable<ApplicationUser> GetSeller(int albumId)
+        {
+            return _repo.GetSeller(albumId);
+        }
+
         public HttpResponseMessage Post(string userId, [FromBody]Album newAlbum)
         {
             newAlbum.UserId = userId;

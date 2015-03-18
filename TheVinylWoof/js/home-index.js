@@ -36,12 +36,39 @@ angular.module("VinylWoofApp", ["ngRoute"])
 .controller("newAlbumController", function ($scope, $http) {
     $scope.newAlbum = {};
 
+    //TODO add functionality to get album art
+
     $scope.save = function () {
         $http.post
     }
 })
 
 .controller("albumDetailsController", function ($scope, $http, $routeParams) {
-    console.log($routeParams);
-    alert("hit controller");
+    var albumId = $routeParams.id;
+    console.log(albumId);
+
+   var userData;
+    var albumData;
+    $scope.user;
+    $scope.album;
+
+    var userUrl = "/api/albums/" + albumId + "/user";
+    var albumUrl = "/api/albums/" + albumId;
+
+    $http.get(userUrl)
+        .then(function (result) {
+            //success
+            userData = result.data;
+            $scope.user = userData[0];
+            console.log($scope.user);
+        });
+
+    $http.get(albumUrl)
+        .then(function (result) {
+            //success
+            albumData = result.data;
+            $scope.album = albumData[0];
+            console.log($scope.album);
+        });
+        
 });
