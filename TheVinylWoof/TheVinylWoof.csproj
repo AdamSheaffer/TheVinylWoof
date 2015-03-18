@@ -198,18 +198,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503162152031_Profile.cs" />
-    <Compile Include="Migrations\201503162152031_Profile.Designer.cs">
-      <DependentUpon>201503162152031_Profile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503170009576_User.cs" />
-    <Compile Include="Migrations\201503170009576_User.Designer.cs">
-      <DependentUpon>201503170009576_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503170030180_numRatings.cs" />
-    <Compile Include="Migrations\201503170030180_numRatings.Designer.cs">
-      <DependentUpon>201503170030180_numRatings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -1030,8 +1018,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\MyProfile.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -1065,17 +1051,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503162152031_Profile.resx">
-      <DependentUpon>201503162152031_Profile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503170009576_User.resx">
-      <DependentUpon>201503170009576_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503170030180_numRatings.resx">
-      <DependentUpon>201503170030180_numRatings.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

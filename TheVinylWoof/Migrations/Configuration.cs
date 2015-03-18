@@ -26,7 +26,8 @@ namespace VinylWoof.Migrations
                     Cost = 3,
                     UserId = "1",
                     IsSold = false,
-                    Description = "Great album"
+                    Description = "Great album",
+                    CoverLocation = "http://ecx.images-amazon.com/images/I/91uC0QuxoML._SL1500_.jpg"
                 },
 
                  new Album
@@ -38,7 +39,8 @@ namespace VinylWoof.Migrations
                      Cost = 3,
                      UserId = "1",
                      IsSold = false,
-                     Description = "Great album"
+                     Description = "Great album",
+                     CoverLocation = "http://ecx.images-amazon.com/images/I/51481od8IuL.jpg"
                  },
 
                  new Album
@@ -50,7 +52,8 @@ namespace VinylWoof.Migrations
                      Cost = 3,
                      UserId = "2",
                      IsSold = false,
-                     Description = "Great album"
+                     Description = "Great album",
+                     CoverLocation = "http://images.amazon.com/images/G/01/richmedia/images/cover.gif"
                  },
 
                new Album
@@ -62,6 +65,7 @@ namespace VinylWoof.Migrations
                    Cost = 4,
                    UserId = "2",
                    IsSold = false,
+                   CoverLocation = "http://ecx.images-amazon.com/images/I/816Af3gozOL._SL1425_.jpg",
                    Description = "Great album"
                }
             );
