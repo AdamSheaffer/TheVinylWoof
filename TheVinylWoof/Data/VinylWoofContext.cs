@@ -10,12 +10,12 @@ namespace TheVinylWoof.Data
 {
     public class VinylWoofContext : IdentityDbContext<ApplicationUser>
     {
-        public VinylWoofContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
-        }
+        //public VinylWoofContext()
+        //    : base("DefaultConnection", throwIfV1Schema: false)
+        //{
+        //    this.Configuration.LazyLoadingEnabled = false;
+        //    this.Configuration.ProxyCreationEnabled = false;
+        //}
 
         public static VinylWoofContext Create()
         {
@@ -23,7 +23,6 @@ namespace TheVinylWoof.Data
         }
 
         public DbSet<Album> Albums { get; set; }
-        public DbSet<ApplicationUser> ProfileUsers { get; set; }
     }
 }
 

@@ -25,7 +25,7 @@ namespace TheVinylWoof.Controllers
         [Route("api/users")]
         public IEnumerable<ApplicationUser> Get()
         {
-            return _repo.GetUsersIncludingAlbums()
+            return _repo.GetProfileUsersIncludingAlbums()
                 .OrderBy(n => n.Email)
                 .ToList();
         }
@@ -33,13 +33,13 @@ namespace TheVinylWoof.Controllers
         [Route("api/users/{id}")]
         public ApplicationUser Get(string id)
         {
-            return _repo.GetUsersIncludingAlbums().Where(x => x.Id == id).First();
+            return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == id).First();
         }
 
         [Route("api/users")]
         public HttpResponseMessage Post(ApplicationUser newUser)
         {
-            if (_repo.AddUser(newUser) && _repo.Save())
+            if (_repo.AddProfileUser(newUser) && _repo.Save())
             {
                 return Request.CreateResponse(HttpStatusCode.Created, newUser);
             }

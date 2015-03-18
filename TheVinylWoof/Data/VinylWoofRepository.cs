@@ -26,14 +26,14 @@ namespace TheVinylWoof.Data
         }
 
 
-        public IQueryable<Models.ApplicationUser> GetUsers()
+        public IQueryable<Models.ApplicationUser> GetProfileUsers()
         {
-            return _ctx.ProfileUsers;
+            return _ctx.Users;
         }
 
-        public IQueryable<Models.ApplicationUser> GetUserById(string id)
+        public IQueryable<Models.ApplicationUser> GetProfileUserById(string id)
         {
-            return _ctx.ProfileUsers.Where(x => x.Id == id);
+            return _ctx.Users.Where(x => x.Id == id);
         }
 
 
@@ -65,17 +65,17 @@ namespace TheVinylWoof.Data
         }
 
 
-        public IQueryable<ApplicationUser> GetUsersIncludingAlbums()
+        public IQueryable<ApplicationUser> GetProfileUsersIncludingAlbums()
         {
-            return _ctx.ProfileUsers.Include("Albums");
+            return _ctx.Users;
         }
 
 
-        public bool AddUser(Models.ApplicationUser newUser)
+        public bool AddProfileUser(Models.ApplicationUser newUser)
         {
             try
             {
-                _ctx.ProfileUsers.Add(newUser);
+                _ctx.Users.Add(newUser);
                 return true;
             }
             catch (Exception ex)

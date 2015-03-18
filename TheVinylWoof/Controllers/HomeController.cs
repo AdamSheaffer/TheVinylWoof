@@ -18,7 +18,7 @@ namespace TheVinylWoof.Controllers
 
         public ActionResult Index()
         {
-            var users = _repo.GetUsers().ToList();
+            var users = _repo.GetProfileUsers().ToList();
 
             return View(users);
         }

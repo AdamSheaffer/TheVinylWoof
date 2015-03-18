@@ -50,7 +50,7 @@ namespace VinylWoof.Migrations
                      Genre = "Hip-Hop",
                      Condition = "Excellent",
                      Cost = 3,
-                     UserId = "2",
+                     UserId = "85bddf62-9670-4aa9-8d0b-fd94ff3a271f",
                      IsSold = false,
                      Description = "Great album",
                      CoverLocation = "http://images.amazon.com/images/G/01/richmedia/images/cover.gif"
@@ -63,29 +63,10 @@ namespace VinylWoof.Migrations
                    Genre = "Blues",
                    Condition = "Good",
                    Cost = 4,
-                   UserId = "2",
+                   UserId = "85bddf62-9670-4aa9-8d0b-fd94ff3a271f",
                    IsSold = false,
                    CoverLocation = "http://ecx.images-amazon.com/images/I/816Af3gozOL._SL1425_.jpg",
                    Description = "Great album"
-               }
-            );
-
-            context.ProfileUsers.AddOrUpdate(i => i.Email,
-               new ApplicationUser
-               {
-                   Email = "Adam.e.Sheaffer@gmail.com",
-                   Bio = "Here's Adam's Story",
-                   Id = "1",
-                   Credits = 5,
-                   Rating = 4
-               },
-               new ApplicationUser
-               {
-                   Email = "Bob@bob.com",
-                   Bio = "Here's Bob's Story",
-                   Id = "2",
-                   Credits = 7,
-                   Rating = 4
                }
             );
         }
