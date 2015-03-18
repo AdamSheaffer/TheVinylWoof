@@ -85,5 +85,12 @@ namespace TheVinylWoof.Data
                 return false;
             }
         }
+
+        public IQueryable<ApplicationUser> GetSeller(int albumId)
+        {
+            var SellerId = _ctx.Albums.Where(x => x.Id == albumId).First().UserId;
+            return _ctx.Users.Where(x => x.Id == SellerId);
+        }
+        
     }
 }
