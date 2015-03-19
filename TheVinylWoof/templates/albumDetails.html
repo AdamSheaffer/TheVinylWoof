@@ -26,7 +26,35 @@
             <h4 id="condition-header">Condition: {{album.condition}}</h4>
             <h4>Description:</h4>
             <p class="album-description">{{album.description}}</p>
-            <div class="btn btn-success col-lg-12 grab">Grab Album</div>
+            <button class="btn btn-success col-lg-12 grab" data-toggle="modal" data-target="#myModal">Grab Album</button>
+        </div>
+        <div class="sharer-details details">
+            <div class="logo-wrap">
+                <img src="http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png" alt="Woofie" class="logo" />
+            </div>
+            <h5>{{user.userName}}</h5>
+            <span>{{user.city}}, {{user.state}}</span>
+            <p>{{user.bio}}</p>
+            <span>Rating: {{user.rating}}/5</span>
         </div>
     </div>
 </div>
+
+<!--MODAL-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
