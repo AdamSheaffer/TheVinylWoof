@@ -18,44 +18,17 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .otherwise({ redirectTo: "/" });
 })
 
-    .factory("dataService", function ($http, $q) {
+.controller("albumsController", function ($scope, $http) {
+    $scope.data = [];
 
-        var _albums = [];
-
-        var _getAlbums = function () {
-
-            var deferred = $q.defer();
-
-            $http.get("/api/albums")
-                .then(function (result) {
-                    //success
-                    angular.copy(result.data, _albums);
-                    deferred.resolve();
-                },
-                function () {
-                    //Error
-                    deferred.reject();
-                })
-
-            return deferred.promise;
-        }
-
-        return {
-            albums: _albums,
-            getAlbums: _getAlbums
-        };
-    })
-
-.controller("albumsController", function ($scope, $http, dataService) {
-    $scope.data = dataService;
-
-    dataService.getAlbums()
-        .then(function () {
-            //Success
+    $http.get("/api/albums")
+        .then(function (result) {
+            //success
+            console.log(result);
+            angular.copy(result.data, $scope.data);
         },
         function () {
-            //error
-            alert("error loading albums");
+            alert("error")
         })
 
 })
