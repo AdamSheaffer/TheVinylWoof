@@ -97,3 +97,46 @@ textarea {
     border: 5px solid white;
     float: left;
 }
+
+/*******DETAILS PAGE*******/
+
+.seller-info-wrap {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 40px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    display: block;
+}
+
+.logo-wrap {
+    border: 3px solid black;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    padding: 10px;
+    display: inline-block;
+}
+
+.username {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    position: relative;
+    top: -25px;
+}
+
+.details-cover-art {
+    border: 1px solid #ccc;
+    height: 550px;
+    width: 550px;
+    display: block;
+}
+
+.details {
+    height: 450px;
+    background: white;
+    border-radius: 5px;
+}
