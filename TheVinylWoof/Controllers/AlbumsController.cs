@@ -8,8 +8,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Security;
 using TheVinylWoof.Data;
 using TheVinylWoof.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TheVinylWoof.Controllers
 {
@@ -55,9 +57,10 @@ namespace TheVinylWoof.Controllers
             return _repo.GetSeller(albumId);
         }
 
-        public HttpResponseMessage Post(string userId, [FromBody]Album newAlbum)
+        [Route("api/albums")]
+        public HttpResponseMessage Post([FromBody]Album newAlbum)
         {
-            newAlbum.UserId = userId;
+            newAlbum.UserId = User.Identity.GetUserId();
 
             if (_repo.AddAlbum(newAlbum) && _repo.Save())
             {

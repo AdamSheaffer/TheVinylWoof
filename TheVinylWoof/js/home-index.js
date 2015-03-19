@@ -33,13 +33,23 @@ angular.module("VinylWoofApp", ["ngRoute"])
 
 })
 
-.controller("newAlbumController", function ($scope, $http) {
+.controller("newAlbumController", function ($scope, $http, $location) {
     $scope.newAlbum = {};
 
     //TODO add functionality to get album art
 
     $scope.save = function () {
-        $http.post
+        $http.post("api/albums", $scope.newAlbum)
+            .then(function (result) {
+                //Success
+                var newAlbum = result.data;
+                console.log(newAlbum);
+                $location.path('/');
+            },
+            function () {
+                //error
+                alert("can't save album");
+            });
     }
 })
 
