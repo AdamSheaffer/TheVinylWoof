@@ -32,7 +32,7 @@
             <div class="logo-wrap">
                 <img src="http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png" alt="Woofie" class="logo" />
             </div>
-            <h5>{{user.userName}}</h5>
+            <h3>{{user.userName}}</h3>
             <span>{{user.city}}, {{user.state}}</span>
             <p>{{user.bio}}</p>
             <span>Rating: {{user.rating}}/5</span>
@@ -46,14 +46,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">Grab "{{album.title}}" by {{album.artist}}</h4>
             </div>
             <div class="modal-body">
-                <p>One fine body&hellip;</p>
+                <img ng-src="{{album.coverLocation}}" alt="{{album.title}}" class="modal-cover-art" />
+                <p>Do you want to trade {{album.cost}} Woofie for {{album.title}} by {{album.artist}}?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
