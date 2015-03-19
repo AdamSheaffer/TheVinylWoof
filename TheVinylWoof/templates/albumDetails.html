@@ -5,11 +5,28 @@
 
     <h3 class="username">{{user.userName}}</h3>
 </div>
-<div class="details-content-wrap">
+<div class="details-content-wrap row">
     <div class="col-lg-7">
+        <div class="pic-header">
+            <h3>{{album.title}}</h3>
+        </div>
         <img ng-src="{{album.coverLocation}}" alt="{{album.title}}" class="details-cover-art" />
     </div>
-    <div class="col-lg-5 details">
-
+    <div class="col-lg-5">
+        <div class="details">
+            <h3>
+                <span>{{album.title}} by {{album.artist}}</span>
+            </h3>
+            <div class="col-sm-6 woofie-wrap">
+                <h4>Woofie: {{album.cost}}</h4>
+            </div>
+            <div class="col-sm-6 woofie-wrap">
+                <a href="mailto::{{user.email}}">Email Sharer</a>
+            </div>
+            <h4 id="condition-header">Condition: {{album.condition}}</h4>
+            <h4>Description:</h4>
+            <p class="album-description">{{album.description}}</p>
+            <div class="btn btn-success col-lg-12 grab">Grab Album</div>
+        </div>
     </div>
 </div>

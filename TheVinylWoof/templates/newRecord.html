@@ -61,6 +61,14 @@
             <span class="has-error" ng-show="newAlbumForm.cost.$error.pattern">*</span>
             <input type="text" name="cost" class="form-control" ng-model="newAlbum.cost" required ng-pattern="/^[0-9]{1,7}$/" />
         </div>
+
+        <!--TRASH THIS AFTER USING AMAZON PRODUCT API-->
+        <div class="form-group">
+            <label for="cover">Cover</label>
+            <span class="has-error" ng-show="newAlbumForm.cost.$error.required">*</span>
+            <input type="text" name="coverLocation" class="form-control" ng-model="newAlbum.coverLocation" />
+        </div>
+
         <div>
             <a href="/#/" class="btn">Search Album Art</a>
             <button class="=btn" ng-disabled="newAlbumForm.$invaild" ng-click="save()">Submit</button>
