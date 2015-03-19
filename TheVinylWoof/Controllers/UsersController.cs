@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using TheVinylWoof.Data;
 using TheVinylWoof.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TheVinylWoof.Controllers
 {
@@ -33,6 +34,12 @@ namespace TheVinylWoof.Controllers
         [Route("api/users/{id}")]
         public ApplicationUser Get(string id)
         {
+            if (id == "currentUser")
+            {
+                var currentId = User.Identity.GetUserId();
+                return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == currentId).First();
+            }
+
             return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == id).First();
         }
 

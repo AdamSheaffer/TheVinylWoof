@@ -61,6 +61,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     var albumData;
     $scope.user;
     $scope.album;
+    $scope.currentUser;
 
     var userUrl = "/api/albums/" + albumId + "/user";
     var albumUrl = "/api/albums/" + albumId;
@@ -80,5 +81,14 @@ angular.module("VinylWoofApp", ["ngRoute"])
             $scope.album = albumData[0];
             console.log($scope.album);
         });
-        
+    
+    $http.get("api/users/currentUser")
+        .then(function (result) {
+            //success
+            $scope.currentUser = result.data;
+        },
+        function () {
+            //error
+            alert("getting current user failed");
+        });
 });
