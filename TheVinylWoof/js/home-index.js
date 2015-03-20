@@ -19,6 +19,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
 })
 
 .controller("albumsController", function ($scope, $http) {
+    $scope.searchParams = {title: "", genre: ""};
     $scope.data = [];
 
     $http.get("/api/albums")
@@ -29,7 +30,18 @@ angular.module("VinylWoofApp", ["ngRoute"])
         },
         function () {
             alert("error")
-        })
+        });
+
+    $scope.searchAlbums = function () {
+        $http.get("api/albums?genre=" + $scope.searchParams.genre + "&searchString=" + $scope.searchParams.title)
+            .then(function (result) {
+                //success
+                $scope.data = result.data;
+            }),
+            function () {
+                alert("error searching albums");
+            }
+    }
 
 })
 
@@ -73,7 +85,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             },
             function () {
                 //error
-                alert("problem swapping album")
+                alert("There was a problem swapping album");
             });
     }
 

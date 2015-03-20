@@ -119,5 +119,24 @@ namespace TheVinylWoof.Data
             }
             return false;
         }
+
+
+        public IQueryable<Album> GetAlbumsByTitleAndGenre(string title, string genre)
+        {
+            var albums = from a in _ctx.Albums
+                         select a;
+
+            if (!String.IsNullOrEmpty(title))
+            {
+                albums = albums.Where(s => s.Title.Contains(title));
+            }
+
+            if (!string.IsNullOrEmpty(genre))
+            {
+                albums = albums.Where(x => x.Genre == genre);
+            }
+
+            return albums;
+        }
     }
 }

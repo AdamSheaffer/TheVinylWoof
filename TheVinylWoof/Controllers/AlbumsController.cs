@@ -28,8 +28,14 @@ namespace TheVinylWoof.Controllers
         public IEnumerable<Album> Get()
         {
             return _repo.GetAlbums()
-                    .OrderByDescending(n => n.Genre)
+                    .OrderByDescending(n => n.Title)
                     .ToList();
+        }
+
+        [Route("api/albums")]
+        public IEnumerable<Album> Get(string searchString, string genre)
+        {
+            return _repo.GetAlbumsByTitleAndGenre(searchString, genre);
         }
 
         [Route("api/albums/{id}")]

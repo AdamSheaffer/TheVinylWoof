@@ -1,18 +1,19 @@
 ﻿<h3 class="page-head">Shop Vinyl Woof</h3>
 <div class="search-wrap">
     <div class="query-container col-md-6">
-        <a class="btn btn-primary search-button">Search</a>
-        <input name="searchParams" placeholder="Seach by album" class="form-control searchbar" />
+        <a class="btn btn-primary search-button" ng-click="searchAlbums()">Search</a>
+        <input name="searchParams" placeholder="Seach for Title" class="form-control searchbar" ng-model="searchParams.title" />
     </div>
     <div class="col-md-6">
-        <select name="genre" class="form-control search-genre">
+        <select name="genre" class="form-control search-genre" ng-model="searchParams.genre">
+            <option value="">Select Genre</option>
             <option value="altRock">Alternative Rock</option>
             <option value="blues">Blues</option>
             <option value="vocal">Broadway &#38 Vocal</option>
             <option value="childrens">Children's Music</option>
             <option value="christian">Christian Music</option>
             <option value="classicRock">Classic Rock</option>
-            <option value="comedy">Comedy &#38 Spoken Work</option>
+            <option value="comedy">Comedy</option>
             <option value="country">Country</option>
             <option value="dance">Dance &#38 EDM</option>
             <option value="folk">Folk</option>
