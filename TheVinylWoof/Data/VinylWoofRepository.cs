@@ -46,7 +46,7 @@ namespace TheVinylWoof.Data
             }
             catch (Exception ex)
             {
-                //Log this error
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -60,7 +60,7 @@ namespace TheVinylWoof.Data
             }
             catch (Exception ex)
             {
-                //Log error
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -81,7 +81,7 @@ namespace TheVinylWoof.Data
             }
             catch (Exception ex)
             {
-                //Log error
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -94,9 +94,26 @@ namespace TheVinylWoof.Data
 
 
 
-        public bool Swap(Album album, string buyerId)
+        public bool Swap(int albumId, string buyerId)
         {
-            throw new NotImplementedException();
+            var album = _ctx.Albums.Where(a => a.Id == albumId).First();
+            var seller = _ctx.Users.Where(u => u.Id == album.UserId).First();
+            var buyer = _ctx.Users.Where(u => u.Id == buyerId).First();
+            bool hasEnoughCredit = buyer.Credits >= album.Cost;
+
+            try
+            {
+                seller.Credits += album.Cost;
+                buyer.Credits -= album.Cost;
+                album.BuyerId = buyerId;
+                album.IsSold = true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
         }
     }
 }
