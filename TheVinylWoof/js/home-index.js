@@ -86,6 +86,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.currentUser = result.data;
+            console.log(result.data);
+            debugger;
         },
         function () {
             //error

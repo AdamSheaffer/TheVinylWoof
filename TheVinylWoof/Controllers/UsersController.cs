@@ -32,15 +32,15 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/users/{id}")]
-        public ApplicationUser Get(string id)
+        public IEnumerable<ApplicationUser> Get(string id)
         {
             if (id == "currentUser")
             {
                 var currentId = User.Identity.GetUserId();
-                return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == currentId).First();
+                return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == currentId);
             }
 
-            return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == id).First();
+            return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == id);
         }
 
         [Route("api/users")]
