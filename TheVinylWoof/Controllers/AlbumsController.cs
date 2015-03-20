@@ -72,7 +72,12 @@ namespace TheVinylWoof.Controllers
         [Route("api/albums/{albumid}")]
         public HttpResponseMessage PostGrab(int albumid)
         {
-            throw new NotImplementedException();    
+            var currentId = User.Identity.GetUserId();
+            if (_repo.Swap(albumid, currentId) && _repo.Save())
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

@@ -99,21 +99,25 @@ namespace TheVinylWoof.Data
             var album = _ctx.Albums.Where(a => a.Id == albumId).First();
             var seller = _ctx.Users.Where(u => u.Id == album.UserId).First();
             var buyer = _ctx.Users.Where(u => u.Id == buyerId).First();
-            bool hasEnoughCredit = buyer.Credits >= album.Cost;
+            bool hasEnoughCredits = buyer.Credits >= album.Cost;
 
-            try
+            if (hasEnoughCredits)
             {
-                seller.Credits += album.Cost;
-                buyer.Credits -= album.Cost;
-                album.BuyerId = buyerId;
-                album.IsSold = true;
-                return true;
+                try
+                {
+                    seller.Credits += album.Cost;
+                    buyer.Credits -= album.Cost;
+                    album.BuyerId = buyerId;
+                    album.IsSold = true;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    return false;
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                return false;
-            }
+            return false;
         }
     }
 }

@@ -50,11 +50,13 @@
             </div>
             <div class="modal-body">
                 <img ng-src="{{album.coverLocation}}" alt="{{album.title}}" class="modal-cover-art" />
-                <p>Do you want to trade {{album.cost}} Woofie for {{album.title}} by {{album.artist}}?</p>
+                <p ng-hide="swapSuccess">Do you want to trade {{album.cost}} Woofie for {{album.title}} by {{album.artist}}?</p>
+                <p ng-show="swapSuccess">Awesome! You've swapped {{album.title}} by {{album.artist}} for {{album.cost}} Woofie. {{user.userName}} will be notified.</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="swapSuccess">Close</button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-hide="swapSuccess">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="swap()" ng-hide="swapSuccess">Confirm</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

@@ -44,7 +44,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
                 //Success
                 var newAlbum = result.data;
                 console.log(newAlbum);
-                $location.path('/');
+                $location.path("/");
             },
             function () {
                 //error
@@ -53,18 +53,29 @@ angular.module("VinylWoofApp", ["ngRoute"])
     }
 })
 
-.controller("albumDetailsController", function ($scope, $http, $routeParams) {
+.controller("albumDetailsController", function ($scope, $http, $routeParams, $location) {
     var albumId = $routeParams.id;
     console.log(albumId);
 
-   var userData;
+    var userData;
     var albumData;
+    var userUrl = "/api/albums/" + albumId + "/user";
+    var albumUrl = "/api/albums/" + albumId;
+    $scope.swapSuccess = false;
     $scope.user;
     $scope.album;
     $scope.currentUser;
-
-    var userUrl = "/api/albums/" + albumId + "/user";
-    var albumUrl = "/api/albums/" + albumId;
+    $scope.swap = function () {
+        $http.post(albumUrl, albumId)
+            .then(function (result) {
+                //success
+                $scope.swapSuccess = true;
+            },
+            function () {
+                //error
+                alert("problem swapping album")
+            });
+    }
 
     $http.get(userUrl)
         .then(function (result) {
@@ -91,6 +102,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         },
         function () {
             //error
-            alert("getting current user failed");
+            console.log("getting current user failed");
         });
 });
