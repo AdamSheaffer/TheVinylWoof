@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201503181703131_Initial.Designer.cs">
       <DependentUpon>201503181703131_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503201446112_BuyerIsString.cs" />
+    <Compile Include="Migrations\201503201446112_BuyerIsString.Designer.cs">
+      <DependentUpon>201503201446112_BuyerIsString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -1063,6 +1067,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503181703131_Initial.resx">
       <DependentUpon>201503181703131_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503201446112_BuyerIsString.resx">
+      <DependentUpon>201503201446112_BuyerIsString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

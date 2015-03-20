@@ -13,7 +13,7 @@ namespace TheVinylWoof.Models
         public string Genre { get; set; }
         public string Description { get; set; }
         public virtual string UserId { get; set; }
-        public int BuyerId { get; set; }
+        public string BuyerId { get; set; }
         public int Cost { get; set; }
         public bool IsSold { get; set; }
         public string CoverLocation { get; set; }
