@@ -15,11 +15,15 @@ angular.module("VinylWoofApp", ["ngRoute"])
             controller: "albumDetailsController",
             templateUrl: "/templates/albumDetails.html"
         })
+        .when("/Dashboard", {
+            controller: "dashboardController",
+            templateUrl: "templates/dashboard.html"
+        })
         .otherwise({ redirectTo: "/" });
 })
 
 .controller("albumsController", function ($scope, $http) {
-    $scope.searchParams = {title: "", genre: ""};
+    $scope.searchParams = { title: "", genre: "" };
     $scope.data = [];
 
     $http.get("/api/albums")
@@ -104,7 +108,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             $scope.album = albumData[0];
             console.log($scope.album);
         });
-    
+
     $http.get("api/users/currentUser")
         .then(function (result) {
             //success
@@ -116,4 +120,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //error
             console.log("getting current user failed");
         });
+})
+
+.controller("dashboardController", function ($scope, $http) {
+    alert("hit the controller");
 });
