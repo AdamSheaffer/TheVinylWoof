@@ -123,5 +123,37 @@ angular.module("VinylWoofApp", ["ngRoute"])
 })
 
 .controller("dashboardController", function ($scope, $http) {
-    alert("hit the controller");
+    $scope.currentUser;
+    $scope.albumsBought;
+    $scope.albumsGiven;
+
+    //TODO abstract to auth Factory
+    $http.get("api/users/currentUser")
+        .then(function (result) {
+            //success
+            $scope.currentUser = result.data;
+            console.log(result.data);
+            var id = $scope.currentUser[0].id;
+            getAlbumsBought(id);
+        },
+        function () {
+            //error
+            console.log("getting current user failed");
+        });
+    
+    function getAlbumsBought(userId) {
+        $http.get("api/users/" + userId + "/albums?albumSet=bought")
+        .then(function (result) {
+            //success
+            $scope.albumsBought = result.data;
+            debugger;
+        },
+        function () {
+            //error
+            console.log("getting bought albums failed");
+        });
+    }
+
+    
+
 });

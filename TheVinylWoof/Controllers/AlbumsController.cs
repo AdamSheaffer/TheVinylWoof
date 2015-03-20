@@ -52,8 +52,12 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/users/{profileid}/albums")]
-        public IEnumerable<Album> GetUserAlbums(string profileid)
+        public IEnumerable<Album> GetUserAlbums(string profileid, string albumSet = "sold")
         {
+            if (albumSet == "bought")
+            {
+                return _repo.GetAlbumsBought(profileid);
+            }
             return _repo.GetAlbums().Where(a => a.UserId == profileid);
         }
 

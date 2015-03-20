@@ -138,5 +138,11 @@ namespace TheVinylWoof.Data
 
             return albums;
         }
+
+
+        public IQueryable<Album> GetAlbumsBought(string userId)
+        {
+            return _ctx.Albums.Where(a => a.BuyerId == userId);
+        }
     }
 }
