@@ -68,5 +68,11 @@ namespace TheVinylWoof.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
+
+        [Route("api/albums/{albumid}")]
+        public HttpResponseMessage PostGrab(int albumid)
+        {
+            throw new NotImplementedException();    
+        }
     }
 }

@@ -91,6 +91,12 @@ namespace TheVinylWoof.Data
             var SellerId = _ctx.Albums.Where(x => x.Id == albumId).First().UserId;
             return _ctx.Users.Where(x => x.Id == SellerId);
         }
-        
+
+
+
+        public bool Swap(Album album, string buyerId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
