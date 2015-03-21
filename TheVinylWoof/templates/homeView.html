@@ -32,14 +32,15 @@
     </div>
 </div>
 <div class="row">
-    <div ng-repeat="album in data" class="col-md-4 item-block">
-        <a>
+    <div ng-repeat="album in data" class="col-md-3 item-block">
+        <a href="/#/AlbumDetails/{{album.id}}">
             <img ng-src="{{album.coverLocation}}" alt="Album Cover" class="album-art" />
         </a>
-        <a href="/#/AlbumDetails/{{album.id}}">
-            <h4>Title: {{album.title}}</h4>
-        </a>
-        <h4>Artist: {{album.artist}}</h4>
-        <h4>Woofie: {{album.cost}}</h4>
+        <p class="title"><em>"{{album.title}}"</em></p>
+        <p class="artist">{{album.artist}}</p>
+        <p class="price">
+            <img src="../Images/BoneImg.png" alt="cost" class="bone-image" />
+            {{album.cost}}
+        </p>
     </div>
 </div>

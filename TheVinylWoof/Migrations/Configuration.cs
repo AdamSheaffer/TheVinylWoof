@@ -45,15 +45,15 @@ namespace VinylWoof.Migrations
 
                  new Album
                  {
-                     Title = "Yeezus",
-                     Artist = "Kanye West",
-                     Genre = "Hip-Hop",
-                     Condition = "Excellent",
+                     Title = "Sail Away",
+                     Artist = "Randy Newman",
+                     Genre = "Folk",
+                     Condition = "Decent",
                      Cost = 3,
                      UserId = "85bddf62-9670-4aa9-8d0b-fd94ff3a271f",
                      IsSold = false,
                      Description = "Great album but it's time for someone else to enjoy this. Vinyl in good condition - has a couple of faint scratches on side 1.",
-                     CoverLocation = "http://ecx.images-amazon.com/images/I/71Ubu92jsAL._SL1500_.jpg"
+                     CoverLocation = "http://ecx.images-amazon.com/images/I/51m2PhUJUOL.jpg"
                  },
 
                new Album
