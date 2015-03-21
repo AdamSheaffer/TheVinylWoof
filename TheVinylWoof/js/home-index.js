@@ -52,6 +52,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
 .controller("newAlbumController", function ($scope, $http, $location) {
     $scope.newAlbum = {};
 
+    $scope.showPreview = false;
+
     //TODO add functionality to get album art
 
     $scope.save = function () {
@@ -67,6 +69,34 @@ angular.module("VinylWoofApp", ["ngRoute"])
                 alert("can't save album");
             });
     }
+
+    $scope.findCoverArt = function() {
+        var artist = $scope.newAlbum.artist;
+        var title = $scope.newAlbum.title;
+        var url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=f03d3d46d27b37ed1a48317b3bddcf9a&artist=" + artist + "&album=" + title + "&format=json";
+        $http.get(url)
+            .then(function (result) {
+                //success
+                var x = result.data;
+                if (x.message === "Artist not found" || x.album.image[4]['#text'] === "") {
+                    useDefaultArt();
+                }
+                else {
+                    $scope.newAlbum.coverLocation = x.album.image[4]['#text'];
+                    $scope.showPreview = true;
+                } 
+            },
+            function () {
+                //error
+                useDefaultArt();
+            });
+
+        function useDefaultArt() {
+            $scope.newAlbum.coverLocation = "http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png"
+            $scope.showPreview = true;
+        }
+    }
+
 })
 
 .controller("albumDetailsController", function ($scope, $http, $routeParams, $location) {
