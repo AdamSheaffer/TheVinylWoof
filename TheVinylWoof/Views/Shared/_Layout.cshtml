@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Vinyl Woof</title>
+    <link href='http://fonts.googleapis.com/css?family=Spicy+Rice|Noto+Serif:400,700|Boogaloo|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,25 +18,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/#/" class="navbar-brand">Vinyl Woof</a>
+                <a href="/#/" class="navbar-brand" id="brand">Vinyl Woof</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/#/Dashboard">
-                            <span class="glyphicon glyphicon-user"></span>
+                        <a href="/#/Dashboard" class="nav-item">
                             <span class="nav-link">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/#/">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <a href="/#/" class="nav-item">
                             <span class="nav-link">Shop</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/#/AddRecord">
-                            <span class="glyphicon glyphicon-music"></span>
+                        <a href="/#/AddRecord" class="nav-item">
                             <span class="nav-link">Give</span>
                         </a>
                     </li>
@@ -48,7 +46,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Vinyl Woof</p>
         </footer>
     </div>
 

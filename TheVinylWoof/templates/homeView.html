@@ -1,10 +1,5 @@
-﻿<h3 class="page-head">Shop Vinyl Woof</h3>
-<div class="search-wrap">
-    <div class="query-container col-md-6">
-        <a class="btn btn-primary search-button" ng-click="searchAlbums()">Search</a>
-        <input name="searchParams" placeholder="Seach for Title" class="form-control searchbar" ng-model="searchParams.title" />
-    </div>
-    <div class="col-md-6">
+﻿<div class="row"> 
+    <div class="col-md-4">
         <select name="genre" class="form-control search-genre" ng-model="searchParams.genre">
             <option value="">Select Genre</option>
             <option value="Alternative Rock">Alternative Rock</option>
@@ -30,6 +25,10 @@
             <option value="Rock">Rock</option>
             <option value="World">World</option>
         </select>
+    </div>
+    <div class="col-md-6">
+        <input name="searchParams" placeholder="Seach for Title" class="form-control searchbar" ng-model="searchParams.title" />
+        <a class="btn btn-primary search-button" ng-click="searchAlbums()">Search</a>
     </div>
 </div>
 <div class="row">

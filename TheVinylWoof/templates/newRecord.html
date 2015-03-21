@@ -63,11 +63,7 @@
             </div>
 
             <!--TRASH THIS AFTER USING AMAZON PRODUCT API-->
-            <div class="form-group">
-                <label for="cover">Cover</label>
-                <span class="has-error" ng-show="newAlbumForm.cost.$error.required">*</span>
-                <input type="text" name="coverLocation" class="form-control" ng-model="newAlbum.coverLocation" required />
-            </div>
+            
             <div>
                 <button class="btn" ng-click="findCoverArt()">Search Album Art</button>
                 <button class="=btn" ng-disabled="newAlbumForm.$invalid" ng-click="save()">Submit</button>
@@ -77,8 +73,10 @@
     </form>
 </div>
 <div class="col-md-6 new-album-preview" ng-show="showPreview">
-    <div class="preview-art">
-        <img ng-src="{{newAlbum.coverLocation}}" alt="{{newAlbum.title}}" />
+    <div class="preview-art-wrapper">
+        <img ng-src="{{newAlbum.coverLocation}}" alt="{{newAlbum.title}}" class="preview-art"/>
+    </div>
+    <div>
         <h3>{{newAlbum.title}}</h3>
         <h3>{{newAlbum.artist}}</h3>
         <h3>{{newAlbum.genre}}</h3>
