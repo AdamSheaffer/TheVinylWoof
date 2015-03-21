@@ -46,7 +46,7 @@ namespace VinylWoof.Migrations
                  new Album
                  {
                      Title = "Yeezus",
-                     Artist = "Kayne West",
+                     Artist = "Kanye West",
                      Genre = "Hip-Hop",
                      Condition = "Excellent",
                      Cost = 3,

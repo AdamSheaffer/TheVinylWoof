@@ -131,10 +131,11 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $http.get("api/users/currentUser")
         .then(function (result) {
             //success
-            $scope.currentUser = result.data;
+            $scope.currentUser = result.data[0];
             console.log(result.data);
-            var id = $scope.currentUser[0].id;
+            var id = $scope.currentUser.id;
             getAlbumsBought(id);
+            getAlbumsGiven(id);
         },
         function () {
             //error
@@ -146,7 +147,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.albumsBought = result.data;
-            debugger;
         },
         function () {
             //error
@@ -154,6 +154,19 @@ angular.module("VinylWoofApp", ["ngRoute"])
         });
     }
 
-    
+    //TODO refactor these similar functions
+
+    function getAlbumsGiven(userId) {
+        $http.get("api/users/" + userId + "/albums?albumSet=sold")
+        .then(function (result) {
+            //success
+            $scope.albumsGiven = result.data;
+            debugger;
+        },
+        function () {
+            //error
+            console.log("getting bought albums failed");
+        });
+    }
 
 });

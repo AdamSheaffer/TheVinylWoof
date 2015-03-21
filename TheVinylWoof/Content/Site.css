@@ -175,3 +175,17 @@ textarea {
 .modal-cover-art {
     height: 100px;
 }
+
+/******DASHBOARD******/
+
+.my-albums {
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+
+/******FOOTER*******/
+
+footer {
+    clear: both;
+}
