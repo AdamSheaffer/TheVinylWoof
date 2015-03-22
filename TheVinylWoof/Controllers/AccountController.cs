@@ -151,7 +151,7 @@ namespace TheVinylWoof.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, 
+                var user = new ApplicationUser { UserName = model.Username, 
                     Email = model.Email,
                     Bio = model.Bio, 
                     StreetAddress = model.StreetAddress,

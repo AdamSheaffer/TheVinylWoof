@@ -1,5 +1,11 @@
 ﻿<div class="row seller-info-wrap">
     <h3 class="username">{{user.userName}}</h3>
+    <div ng-repeat="relatedAlbum in relatedAlbums | limitTo : 3" class="related-albums">
+        <img ng-src="{{relatedAlbum.coverLocation}}" alt="{{relatedAlbum.title}}" class="related-cover"/>
+    </div>
+    <div class="related-albums">
+        <h4>{{albumCount}} Albums</h4>
+    </div>
 </div>
 <div class="details-content-wrap row">
     <div class="col-lg-7">

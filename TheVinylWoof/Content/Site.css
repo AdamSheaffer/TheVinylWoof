@@ -194,6 +194,17 @@ textarea {
     margin-top: 40px;
 }
 
+.related-albums {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
+
+.related-cover {
+    height: 100px;
+    width: 100px;
+}
+
 .logo {
     height: 50px;
     width: 50px;

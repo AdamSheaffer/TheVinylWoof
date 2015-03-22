@@ -115,6 +115,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $scope.album;
     $scope.currentUser;
     $scope.relatedAlbums = [];
+    $scope.albumCount;
     $scope.swap = function () {
         $http.post(albumUrl, albumId)
             .then(function (result) {
@@ -131,6 +132,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
         $http.get("api/users/" + userId + "/albums")
             .then(function (result) {
                 $scope.relatedAlbums = result.data;
+                $scope.albumCount = $scope.relatedAlbums.length;
             },
             function () {
                 //error
@@ -143,7 +145,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //success
             userData = result.data;
             $scope.user = userData[0];
-            console.log($scope.user);
+            getRelatedAlbums($scope.user.id);
         });
 
     $http.get(albumUrl)
@@ -159,8 +161,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //success
             $scope.currentUser = result.data;
             var userId = $scope.currentUser[0].id;
-            debugger
-            getRelatedAlbums(id);
         },
         function () {
             //error
