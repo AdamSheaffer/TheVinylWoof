@@ -229,6 +229,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\BoneImg.png" />
     <Content Include="Images\congruent_pentagon.png" />
+    <Content Include="Images\NoPhotoImg.png" />
     <Content Include="Images\skulls.png" />
     <Content Include="Images\swirl_pattern.png" />
     <Content Include="Images\WoofieImg.png" />

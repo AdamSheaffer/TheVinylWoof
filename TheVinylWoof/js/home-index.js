@@ -78,7 +78,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
             .then(function (result) {
                 //success
                 var x = result.data;
-                if (x.message === "Artist not found" || x.album.image[4]['#text'] === "") {
+                debugger;
+                if (x.message === "Artist not found" || x.album.image[3]['#text'] === "") {
                     useDefaultArt();
                 }
                 else {
@@ -88,11 +89,13 @@ angular.module("VinylWoofApp", ["ngRoute"])
             },
             function () {
                 //error
+                debugger;
                 useDefaultArt();
             });
 
         function useDefaultArt() {
-            $scope.newAlbum.coverLocation = "http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png"
+            debugger;
+            $scope.newAlbum.coverLocation = "../Images/NoPhotoImg.png"
             $scope.showPreview = true;
         }
     }
@@ -111,6 +114,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $scope.user;
     $scope.album;
     $scope.currentUser;
+    $scope.relatedAlbums = [];
     $scope.swap = function () {
         $http.post(albumUrl, albumId)
             .then(function (result) {
@@ -120,6 +124,17 @@ angular.module("VinylWoofApp", ["ngRoute"])
             function () {
                 //error
                 alert("There was a problem swapping album");
+            });
+    }
+
+    function getRelatedAlbums(userId) {
+        $http.get("api/users/" + userId + "/albums")
+            .then(function (result) {
+                $scope.relatedAlbums = result.data;
+            },
+            function () {
+                //error
+                console.log("problem getting user's other albums");
             });
     }
 
@@ -143,8 +158,9 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.currentUser = result.data;
-            console.log(result.data);
-            debugger;
+            var userId = $scope.currentUser[0].id;
+            debugger
+            getRelatedAlbums(id);
         },
         function () {
             //error

@@ -9,6 +9,24 @@ h1, h2, h3, h4, h5, h6, a, button, select, input, p {
     color: #555;
 }
 
+.btn {
+    color: white;
+    font-weight: 700;
+    background: -webkit-linear-gradient(top, #98d0e0 2%, #68b8d1 8%, #4fa9c6 58%, #4fa9c6 95%, #4ca4c0);
+    border-color: #4fa9c6;
+}
+
+.btn:hover {
+     border-color: #4fa9c6;
+     color: white;
+}
+
+.btn:active {
+    border-color: #4fa9c6;
+    color: white;
+    background: #98d0e0;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -46,6 +64,13 @@ textarea {
     color: #591655;
 }
 
+.brand {
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin: 15px 5px 0 0;
+}
+
 .nav-link, .navbar a, .navbar li a {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 700;
@@ -57,7 +82,7 @@ textarea {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 800;
     font-size: 18px;
-    color: #222;
+    color: #4fa9c6;
     background-color: transparent;
 }
 
@@ -155,8 +180,8 @@ textarea {
 }
 
 .price {
-    font-family: 'Boogaloo', cursive;
-    text-shadow: -1px 0 #aaa, 0 1px #aaa, 1px 0 #aaa, 0 -1px #aaa;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-shadow: -1px 0 #999, 0 1px #999, 1px 0 #999, 0 -1px #999;
     font-size: 18px;
     color: #99D9EA;
 }
@@ -186,9 +211,7 @@ textarea {
 
 .username {
     display: inline-block;
-    margin: 0 0 0 10px;
-    position: relative;
-    top: -25px;
+    margin: 25px 0 0 10px;
 }
 
 .details-content-wrap {
@@ -255,5 +278,17 @@ footer {
 /******NEW ALBUM*******/
 
 .preview-art {
-    height: 300px;
+    height: 298px;
+    border: 5px solid white;
+}
+
+.new-album-btn {
+    display: block;
+    width: 280px;
+    margin-bottom: 20px;
+}
+
+.preview-block {
+    width: 300px;
+    height: 400px;
 }
