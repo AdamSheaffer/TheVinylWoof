@@ -172,6 +172,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $scope.currentUser;
     $scope.albumsBought;
     $scope.albumsGiven;
+    $scope.albumsSold;
+    $scope.buyer;
 
     //TODO abstract to auth Factory
     $http.get("api/users/currentUser")
@@ -182,6 +184,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             var id = $scope.currentUser.id;
             getAlbumsBought(id);
             getAlbumsGiven(id);
+            getAlbumsSold(id);
         },
         function () {
             //error
@@ -200,6 +203,18 @@ angular.module("VinylWoofApp", ["ngRoute"])
         });
     }
 
+    function getAlbumsSold(userId) {
+        $http.get("api/users/" + userId + "/albums?albumSet=sold")
+        .then(function (result) {
+            //success
+            $scope.albumsSold = result.data;
+        },
+        function () {
+            //error
+            console.log("error getting albums sold");
+        });
+    }
+
     //TODO refactor these similar functions
 
     function getAlbumsGiven(userId) {
@@ -212,6 +227,20 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //error
             console.log("getting bought albums failed");
         });
+    }
+
+    $scope.getBuyerInfo = function(userId) {
+        $http.get("api/users/" + userId)
+        .then(function (result) {
+            $scope.buyer = result.data[0];
+            console.log($scope.buyer);
+            debugger;
+        },
+        function () {
+            //error
+            alert("failed");
+        });
+        
     }
 
 });
