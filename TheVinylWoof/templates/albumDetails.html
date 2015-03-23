@@ -1,34 +1,38 @@
 ﻿<div class="row seller-info-wrap">
-    <h3 class="username">{{user.userName}}</h3>
+    <h2 class="username">{{user.userName}}</h2>
     <div class="related-wrapper">
         <div class="related-albums counter">
             <h4>{{albumCount}} Albums</h4>
         </div>
         <div ng-repeat="relatedAlbum in relatedAlbums | limitTo : 3" class="related-albums">
-            <img ng-src="{{relatedAlbum.coverLocation}}" alt="{{relatedAlbum.title}}" class="related-cover" />
+            <a href="/#/AlbumDetails/{{relatedAlbum.id}}">
+                <img ng-src="{{relatedAlbum.coverLocation}}" alt="{{relatedAlbum.title}}" class="related-cover" />
+            </a>
         </div>
     </div>
 </div>
 <div class="details-content-wrap row">
     <div class="col-lg-7">
         <div class="pic-header">
-            <h3>{{album.title}}</h3>
+            <h3 class="detail-album-title">{{album.title}}</h3>
         </div>
         <img ng-src="{{album.coverLocation}}" alt="{{album.title}}" class="details-cover-art" />
     </div>
     <div class="col-lg-5">
         <div class="details">
-            <h3>
-                <span>{{album.title}} by {{album.artist}}</span>
-            </h3>
+            <h3 class="title detail-box-title">{{album.title}}</h3> 
+            <h3 class="artist detail-box-artist">{{album.artist}}</h3>
             <div class="col-sm-6 woofie-wrap">
-                <h4>Woofie: {{album.cost}}</h4>
+                <img src="../Images/BoneImg.png" alt="Woofie" class="bone-image"/>
+                <h4 class="details-woofie price">{{album.cost}}</h4>
             </div>
             <div class="col-sm-6 woofie-wrap">
                 <a class="btn btn-danger" href="mailto::{{user.email}}">Email Sharer</a>
             </div>
-            <h4 id="condition-header">Condition: {{album.condition}}</h4>
-            <h4>Description:</h4>
+            <h4 id="condition-header">
+                <span class="detail">Condition:</span> {{album.condition}}
+            </h4>
+            <h4 class="detail">Description:</h4>
             <p class="album-description">{{album.description}}</p>
             <button class="btn btn-success col-lg-12 grab" data-toggle="modal" data-target="#myModal">Grab Album</button>
         </div>
@@ -36,10 +40,10 @@
             <div class="logo-wrap">
                 <img src="http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png" alt="Woofie" class="logo" />
             </div>
-            <h3>{{user.userName}}</h3>
-            <span>{{user.city}}, {{user.state}}</span>
+            <h3 class="sharer-username">{{user.userName}}</h3>
+            <p>{{user.city}}, {{user.state}}</p>
+            <p>Rating: {{user.rating}}/5</p>
             <p>{{user.bio}}</p>
-            <span>Rating: {{user.rating}}/5</span>
         </div>
     </div>
 </div>

@@ -9,6 +9,10 @@ h1, h2, h3, h4, h5, h6, a, button, select, input, p {
     color: #555;
 }
 
+p {
+    font-weight: 500;
+} 
+
 .btn {
     color: white;
     font-weight: 700;
@@ -206,7 +210,7 @@ textarea {
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 2px;
-    box-shadow: 1px 1px 1px #ccc;
+    box-shadow: 2px 1px 5px #ccc;
 }
 .counter {
     float: right;
@@ -238,22 +242,30 @@ textarea {
     width: 70px;
     border-radius: 50%;
     padding: 10px;
-    display: inline-block;
+    margin: auto;
+    background-color: rgb(79, 169, 198);
 }
 
 .username {
     display: inline-block;
     margin: 25px 0 0 10px;
+    font-family: 'Boogaloo', cursive;
 }
 
 .details-content-wrap {
     background-color: white;
     box-shadow: 1px 1px 1px #ccc;
+    padding-bottom: 50px;
+}
+
+.detail-album-title {
+    font-family: 'Spicy Rice';
+    color: #f5f5f1;
 }
 
 .pic-header {
     text-align: center;
-    background-color: #E5F4F7;
+    background-color: #4fa9c6;
     border-radius: 2px;
     width: 550px;
 }
@@ -271,10 +283,20 @@ textarea {
 
 .details {
     margin-top: 20px;
-    border: 10px solid #E4F3D9;
+    border: 10px solid #591655;
     border-radius: 2px;
     width: 400px;
     padding: 12px;
+}
+
+.detail-box-title {
+    font-size: 32px;
+}
+
+.detail-box-artist {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
 #condition-header {
@@ -285,12 +307,49 @@ textarea {
     padding: 0px;
 }
 
-.grab {
-    
+.woofie-wrap > .bone-image {
+    width: 32px;
+    height: 24px;
+}
+
+.details-woofie {
+    display: inline-block;
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.detail {
+    color: #999;
 }
 
 .modal-cover-art {
     height: 100px;
+    display: block;
+    margin: auto;
+}
+
+.modal-title {
+    font-family: 'Boogaloo';
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-body p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.sharer-username {
+    text-align: center;
+    font-family: 'Boogaloo';
+    margin-top: 3px;
+}
+
+.sharer-details p {
+    text-align: center;
+    font-weight: 700;
+    margin: 2px 0 0 2px;
 }
 
 /******DASHBOARD******/
