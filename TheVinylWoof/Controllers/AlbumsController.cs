@@ -52,7 +52,7 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/users/{profileid}/albums")]
-        public IEnumerable<Album> GetUserAlbums(string profileid, string albumSet = "sold")
+        public IEnumerable<Album> GetUserAlbums(string profileid, string albumSet = "selling")
         {
             if (albumSet == "bought")
             {

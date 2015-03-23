@@ -203,7 +203,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     //TODO refactor these similar functions
 
     function getAlbumsGiven(userId) {
-        $http.get("api/users/" + userId + "/albums?albumSet=sold")
+        $http.get("api/users/" + userId + "/albums?albumSet=selling")
         .then(function (result) {
             //success
             $scope.albumsGiven = result.data;
