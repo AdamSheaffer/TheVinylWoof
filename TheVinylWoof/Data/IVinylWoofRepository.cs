@@ -11,6 +11,7 @@ namespace TheVinylWoof.Data
     {
         IQueryable<Album> GetAlbums();
         IQueryable<Album> GetAlbumsBought(string userId);
+        IQueryable<Album> GetAlbumsSold(string userId);
         IQueryable<Album> GetAlbumsByTitleAndGenre(string title, string genre);
         IQueryable<Album> GetAlbumsFromUser(string userId);
         IQueryable<ApplicationUser> GetProfileUsers();

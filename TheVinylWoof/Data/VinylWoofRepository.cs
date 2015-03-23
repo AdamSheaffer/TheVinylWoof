@@ -144,5 +144,11 @@ namespace TheVinylWoof.Data
         {
             return _ctx.Albums.Where(a => a.BuyerId == userId);
         }
+
+
+        public IQueryable<Album> GetAlbumsSold(string userId)
+        {
+            return _ctx.Albums.Where(a => a.UserId == userId && a.IsSold == true);
+        }
     }
 }

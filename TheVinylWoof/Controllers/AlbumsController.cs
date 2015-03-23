@@ -58,6 +58,10 @@ namespace TheVinylWoof.Controllers
             {
                 return _repo.GetAlbumsBought(profileid);
             }
+            else if (albumSet == "sold")
+            {
+                return _repo.GetAlbumsSold(profileid);
+            }
             return _repo.GetAlbums().Where(a => a.UserId == profileid);
         }
 
