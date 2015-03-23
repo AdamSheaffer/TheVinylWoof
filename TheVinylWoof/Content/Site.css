@@ -3,15 +3,28 @@
     background-color: #f5f5f1;
 }
 
-h1, h2, h3, h4, h5, h6, a, button, select, input, p {
+h1, h2, h3, h4, h5, h6, a, button, select, input, p, li, label {
     font-family: 'Noto Serif', serif;
     font-weight: 700; 
     color: #555;
 }
 
+a {
+    color: #60B3CD;
+    cursor: pointer;
+}
+
 p {
     font-weight: 500;
 } 
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
 
 .btn {
     color: white;
@@ -320,6 +333,8 @@ textarea {
 
 .detail {
     color: #999;
+    display: block;
+    font-size: 20px;
 }
 
 .modal-cover-art {
@@ -357,6 +372,12 @@ textarea {
 .my-albums {
     height: 100px;
     margin-bottom: 15px;
+    border: 2px solid white;
+    box-shadow: 1px 1px 10px #ccc;
+}
+
+.sold {
+    color: tomato;
 }
 
 .my-logo {
@@ -371,6 +392,7 @@ textarea {
     height: 150px;
     width: 150px;
     background-color: #059165;
+    margin-top: 20px;
 }
 
 .profile-container h2 {
@@ -400,11 +422,46 @@ textarea {
     font-family: 'Boogaloo';
 }
 
+.bought-title {
+    margin: 0;
+}
+
+.my-list {
+    padding: 5px;
+    background-color: white;
+    text-shadow: 2px
+}
+
+.my-details-wrap li a {
+    display: block; 
+}
+
+.sold-item:before {
+    content: "!";
+    color: tomato;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.send-to {
+    text-align: center;
+    color: #60B3CD;
+}
+
+.modal-body p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+}
+
 
 /******FOOTER*******/
 
 footer {
     clear: both;
+}
+
+footer p {
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 /******NEW ALBUM*******/
