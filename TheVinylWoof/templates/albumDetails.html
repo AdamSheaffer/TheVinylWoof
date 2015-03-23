@@ -2,7 +2,9 @@
     <h2 class="username">{{user.userName}}</h2>
     <div class="related-wrapper">
         <div class="related-albums counter">
-            <h4>{{albumCount}} Albums</h4>
+            <h4>{{albumCount}}
+                <br /> Albums
+            </h4>
         </div>
         <div ng-repeat="relatedAlbum in relatedAlbums | limitTo : 3" class="related-albums">
             <a href="/#/AlbumDetails/{{relatedAlbum.id}}">
@@ -20,21 +22,23 @@
     </div>
     <div class="col-lg-5">
         <div class="details">
-            <h3 class="title detail-box-title">{{album.title}}</h3> 
+            <h3 class="title detail-box-title">
+                {{album.title}}
+                <span class="title detail-box-title sold" ng-show="album.isSold">(Sold)</span>
+            </h3>
             <h3 class="artist detail-box-artist">{{album.artist}}</h3>
             <div class="col-sm-6 woofie-wrap">
                 <img src="../Images/BoneImg.png" alt="Woofie" class="bone-image"/>
                 <h4 class="details-woofie price">{{album.cost}}</h4>
             </div>
             <div class="col-sm-6 woofie-wrap">
-                <a class="btn btn-danger" href="mailto::{{user.email}}">Email Sharer</a>
+                <a class="btn btn-danger" href="mailto::{{user.email}}" ng-hide="album.isSold">Email Sharer</a>
             </div>
-            <h4 id="condition-header">
-                <span class="detail">Condition:</span> {{album.condition}}
-            </h4>
-            <h4 class="detail">Description:</h4>
+            <h5 id="condition-header" class="detail">Condition: </h5>
+            <p>{{album.condition}}</p>
+            <h5 class="detail description">Description:</h5>
             <p class="album-description">{{album.description}}</p>
-            <button class="btn btn-success col-lg-12 grab" data-toggle="modal" data-target="#myModal">Grab Album</button>
+            <button class="btn btn-success col-lg-12 grab" data-toggle="modal" data-target="#myModal" ng-disabled="album.isSold">Grab Album</button>
         </div>
         <div class="sharer-details details">
             <div class="logo-wrap">
