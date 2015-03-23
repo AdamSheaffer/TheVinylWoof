@@ -359,6 +359,47 @@ textarea {
     margin-bottom: 15px;
 }
 
+.my-logo {
+   width: 100px;
+   height: 100px;
+   display: block;
+   margin: auto;
+   margin-top: 10px;
+}
+
+.my-logo-wrap {
+    height: 150px;
+    width: 150px;
+    background-color: #059165;
+}
+
+.profile-container h2 {
+    text-align: center;
+    font-family: 'Boogaloo'
+}
+
+.profile-container p {
+    margin: auto;
+    font-weight: 700;
+}
+
+.my-details-wrap {
+    margin: auto;
+    float: none;
+}
+
+.hint {
+    font-size: 10px;
+}
+
+.hint a {
+    color: #60B3CD;
+}
+
+#sharing, #grabbed {
+    font-family: 'Boogaloo';
+}
+
 
 /******FOOTER*******/
 

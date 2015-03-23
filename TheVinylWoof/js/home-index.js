@@ -207,7 +207,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.albumsGiven = result.data;
-            debugger;
         },
         function () {
             //error
