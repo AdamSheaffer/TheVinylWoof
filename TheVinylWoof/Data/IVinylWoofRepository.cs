@@ -10,6 +10,7 @@ namespace TheVinylWoof.Data
     public interface IVinylWoofRepository
     {
         IQueryable<Album> GetAlbums();
+        IQueryable<Album> GetAvailableAlbums();
         IQueryable<Album> GetAlbumsBought(string userId);
         IQueryable<Album> GetAlbumsSold(string userId);
         IQueryable<Album> GetAlbumsByTitleAndGenre(string title, string genre);

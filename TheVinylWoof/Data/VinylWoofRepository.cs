@@ -150,5 +150,11 @@ namespace TheVinylWoof.Data
         {
             return _ctx.Albums.Where(a => a.UserId == userId && a.IsSold == true);
         }
+
+
+        public IQueryable<Album> GetAvailableAlbums()
+        {
+            return _ctx.Albums.Where(a => a.IsSold == false);
+        }
     }
 }

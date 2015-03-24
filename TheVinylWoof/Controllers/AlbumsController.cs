@@ -27,7 +27,7 @@ namespace TheVinylWoof.Controllers
         [Route("api/albums")]
         public IEnumerable<Album> Get()
         {
-            return _repo.GetAlbums()
+            return _repo.GetAvailableAlbums()
                     .Take(100)
                     .ToList();
         }
@@ -76,7 +76,7 @@ namespace TheVinylWoof.Controllers
         {
             newAlbum.UserId = User.Identity.GetUserId();
 
-            if (_repo.AddAlbum(newAlbum) && _repo.Save())
+            if (_repo.AddAlbum(newAlbum) && _repo.Save() && newAlbum.UserId != null)
             {
                 return Request.CreateResponse(HttpStatusCode.Created, newAlbum);
             }

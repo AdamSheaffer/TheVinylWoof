@@ -19,6 +19,10 @@ angular.module("VinylWoofApp", ["ngRoute"])
             controller: "dashboardController",
             templateUrl: "templates/dashboard.html"
         })
+        .when("/User/:id", {
+            controller: "userController",
+            templateUrl: "templates/profile.html"
+        })
         .otherwise({ redirectTo: "/" });
 })
 
@@ -61,7 +65,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             .then(function (result) {
                 //Success
                 var newAlbum = result.data;
-                console.log(newAlbum);
                 $location.path("/");
             },
             function () {
@@ -70,7 +73,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             });
     }
 
-    $scope.findCoverArt = function() {
+    $scope.findCoverArt = function () {
         var artist = $scope.newAlbum.artist;
         var title = $scope.newAlbum.title;
         var url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=f03d3d46d27b37ed1a48317b3bddcf9a&artist=" + artist + "&album=" + title + "&format=json";
@@ -79,19 +82,20 @@ angular.module("VinylWoofApp", ["ngRoute"])
                 //success
                 var x = result.data;
                 debugger;
-                if (x.message === "Artist not found" || x.album.image[3]['#text'] === "") {
+                if (x.message === "Artist not found" || x.message === "Album not found" || x.album.image[3]['#text'] === "") {
                     useDefaultArt();
                 }
                 else {
                     $scope.newAlbum.coverLocation = x.album.image[4]['#text'];
                     $scope.showPreview = true;
-                } 
+                }
             },
             function () {
                 //error
                 debugger;
                 useDefaultArt();
             });
+
 
         function useDefaultArt() {
             debugger;
@@ -110,12 +114,21 @@ angular.module("VinylWoofApp", ["ngRoute"])
     var albumData;
     var userUrl = "/api/albums/" + albumId + "/user";
     var albumUrl = "/api/albums/" + albumId;
+
     $scope.swapSuccess = false;
+
     $scope.user;
+
     $scope.album;
+
     $scope.currentUser;
+
     $scope.relatedAlbums = [];
+
     $scope.albumCount;
+
+    $scope.notEnoughWoofie = false;
+
     $scope.swap = function () {
         $http.post(albumUrl, albumId)
             .then(function (result) {
@@ -124,7 +137,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             },
             function () {
                 //error
-                alert("There was a problem swapping album");
+                $scope.notEnoughWoofie = true;
             });
     }
 
@@ -192,7 +205,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //error
             console.log("getting current user failed");
         });
-    
+
     function getAlbumsBought(userId) {
         $http.get("api/users/" + userId + "/albums?albumSet=bought")
         .then(function (result) {
@@ -231,18 +244,21 @@ angular.module("VinylWoofApp", ["ngRoute"])
         });
     }
 
-    $scope.getBuyerInfo = function(userId) {
+    $scope.getBuyerInfo = function (userId) {
         $http.get("api/users/" + userId)
         .then(function (result) {
+
             $scope.buyer = result.data[0];
-            console.log($scope.buyer);
-            debugger;
         },
         function () {
             //error
             alert("failed");
         });
-        
+
     }
 
+})
+
+.controller("userController", function ($scope, $http, $routeParams) {
+    alert("hit the user controller");
 });

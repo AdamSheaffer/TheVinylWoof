@@ -65,6 +65,9 @@
                 <p ng-hide="swapSuccess">Do you want to trade {{album.cost}} Woofie for {{album.title}} by {{album.artist}}?</p>
                 <p ng-show="swapSuccess">Awesome! You've swapped {{album.title}} by {{album.artist}} for {{album.cost}} Woofie. {{user.userName}} will be notified.</p>
                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="swapSuccess">Close</button>
+                <div class="alert alert-danger" role="alert" ng-show="notEnoughWoofie">
+                    You only get what you give. You don't have enough Woofie. 
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-hide="swapSuccess">Close</button>
