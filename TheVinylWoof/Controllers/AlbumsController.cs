@@ -28,7 +28,7 @@ namespace TheVinylWoof.Controllers
         public IEnumerable<Album> Get()
         {
             return _repo.GetAlbums()
-                    .OrderByDescending(n => n.Title)
+                    .Take(100)
                     .ToList();
         }
 

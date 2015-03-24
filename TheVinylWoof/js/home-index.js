@@ -168,7 +168,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
         });
 })
 
-.controller("dashboardController", function ($scope, $http) {
+.controller("dashboardController", function ($scope, $http, $window) {
     $scope.currentUser;
     $scope.albumsBought;
     $scope.albumsGiven;
@@ -180,7 +180,9 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.currentUser = result.data[0];
-            console.log(result.data);
+            if (result.data.length === 0) {
+                $window.location.href = "Account/Login";
+            }
             var id = $scope.currentUser.id;
             getAlbumsBought(id);
             getAlbumsGiven(id);
