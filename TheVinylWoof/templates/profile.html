@@ -1,1 +1,44 @@
-﻿<h1>profile page</h1>
+﻿<div class="dashboard-container row">
+    <div class="col-md-6 album-set-container">
+        <h2 id="sharing">Sharing</h2>
+        <div class="shared-container">
+            <div ng-repeat="album in albumsGiven">
+                <a href="/#/AlbumDetails/{{album.id}}">
+                    <img ng-src="{{album.coverLocation}}" alt="{{album.title}}" class="my-albums" />
+                    <span>
+                        {{album.title}}
+                        <span ng-show="{{album.isSold}}" class="sold">(Grabbed)</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 profile-container">
+        <div class="logo-wrap my-logo-wrap">
+            <img src="http://www.blufftonicon.com/sites/default/files/images/articles/2015/14533-concerning-dog-scat-well-use-another-descriptive-word-story.png" alt="Woofie" class="logo my-logo" />
+        </div>
+        <h2>{{user.userName}}</h2>
+        <hr />
+        <div class="my-details-wrap col-md-8">
+            <p>
+                <span class="detail">Rating:</span> {{user.rating}} / 5
+            </p>
+            <p>
+                <span class="detail">Bio:</span> {{user.bio}}
+            </p>
+            <p>
+                <span class="detail">Email:</span> 
+                <a href="mailto:{{user.email}}">{{user.email}}</a>
+            </p>
+            <p>Submit Rating</p>   
+            <select name="rating" class="form-control" ng-model="rating.newRating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="btn" ng-click="submitRating()">Submit</button>
+        </div>
+    </div>
+</div>

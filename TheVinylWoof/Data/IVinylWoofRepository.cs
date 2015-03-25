@@ -23,5 +23,6 @@ namespace TheVinylWoof.Data
         bool AddAlbum(Album newAlbum);
         bool AddProfileUser(ApplicationUser newUser);
         bool Swap(int albumId, string buyerId);
+        bool AddRating(string userId, int rating);
     }
 }

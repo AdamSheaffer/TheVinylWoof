@@ -23,7 +23,7 @@ namespace TheVinylWoof.Data
 
         public IQueryable<Models.Album> GetAlbumsFromUser(string userId)
         {
-            return _ctx.Albums.Where(x => x.UserId == userId);
+            return _ctx.Albums.Where(x => x.UserId == userId && x.IsSold == false);
         }
 
 
@@ -155,6 +155,30 @@ namespace TheVinylWoof.Data
         public IQueryable<Album> GetAvailableAlbums()
         {
             return _ctx.Albums.Where(a => a.IsSold == false);
+        }
+
+
+        public bool AddRating(string userId, int rating)
+        {
+            var user = _ctx.Users.Where(u => u.Id == userId).First();
+            try
+            {
+                user.Rating = NewAverageRating(user.Rating, user.NumRatings, rating);
+                user.NumRatings += 1;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        private decimal NewAverageRating(decimal avgRating, int numRatings, int newRating)
+        {
+            decimal sumRatings = avgRating * numRatings + newRating;
+            int updatedNumRatings = numRatings + 1;
+            return sumRatings / updatedNumRatings;
         }
     }
 }

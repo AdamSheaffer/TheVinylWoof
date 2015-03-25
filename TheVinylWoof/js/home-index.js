@@ -260,5 +260,42 @@ angular.module("VinylWoofApp", ["ngRoute"])
 })
 
 .controller("userController", function ($scope, $http, $routeParams) {
-    alert("hit the user controller");
+
+    var userId = $routeParams.id;
+
+    $scope.albumsGiven;
+    $scope.user;
+    $scope.rating = {userId: userId };
+
+    $scope.submitRating = function () {
+        var url = "api/users/" + userId;
+        $http.post(url, $scope.rating)
+            .then(function () {
+                alert("rating submitted");
+            },
+            function () {
+                alert("problem submitting rating");
+            })
+    }
+
+    $http.get('api/users/' + userId + '/albums')
+        .then(function (result) {
+            //success
+            $scope.albumsGiven = result.data;
+        },
+        function () {
+            //error
+            alert("problem getting user albums");
+        });
+
+    $http.get('api/users/' + userId)
+        .then(function (result) {
+            //success
+            $scope.user = result.data[0];
+        },
+        function () {
+            //error
+            alert("problem getting user profile");
+        });
+
 });

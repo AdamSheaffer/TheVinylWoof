@@ -43,6 +43,16 @@ namespace TheVinylWoof.Controllers
             return _repo.GetProfileUsersIncludingAlbums().Where(x => x.Id == id);
         }
 
+        [Route("api/users/{id}")]
+        public HttpResponseMessage Post([FromBody] Rating rating)
+        {
+            if (_repo.AddRating(rating.UserId, rating.newRating) && _repo.Save())
+            {
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
         [Route("api/users")]
         public HttpResponseMessage Post(ApplicationUser newUser)
         {

@@ -1,11 +1,16 @@
 ﻿<div class="row seller-info-wrap">
-    <h2 class="username">{{user.userName}}</h2>
+    <a href="/#/User/{{user.id}}">
+        <h2 class="username">{{user.userName}}</h2>
+    </a>
     <div class="related-wrapper">
-        <div class="related-albums counter">
-            <h4>{{albumCount}}
-                <br /> Albums
-            </h4>
-        </div>
+        <a href="/#/User/{{user.id}}">
+            <div class="related-albums counter">
+                <h4>
+                    {{albumCount}}
+                    <br /> Albums
+                </h4>
+            </div>
+        </a>
         <div ng-repeat="relatedAlbum in relatedAlbums | limitTo : 3" class="related-albums">
             <a href="/#/AlbumDetails/{{relatedAlbum.id}}">
                 <img ng-src="{{relatedAlbum.coverLocation}}" alt="{{relatedAlbum.title}}" class="related-cover" />
@@ -24,7 +29,7 @@
         <div class="details">
             <h3 class="title detail-box-title">
                 {{album.title}}
-                <span class="title detail-box-title sold" ng-show="album.isSold">(Sold)</span>
+                <span class="title detail-box-title sold" ng-show="album.isSold">(Grabbed)</span>
             </h3>
             <h3 class="artist detail-box-artist">{{album.artist}}</h3>
             <div class="col-sm-6 woofie-wrap">
