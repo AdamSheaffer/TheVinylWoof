@@ -435,6 +435,11 @@ textarea {
     float: none;
 }
 
+.my-details-wrap select {
+    width: 50px;
+    display: inline-block;
+}
+
 .hint {
     font-size: 10px;
 }

@@ -30,15 +30,17 @@
                 <span class="detail">Email:</span> 
                 <a href="mailto:{{user.email}}">{{user.email}}</a>
             </p>
-            <p>Submit Rating</p>   
-            <select name="rating" class="form-control" ng-model="rating.newRating" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="btn" ng-click="submitRating()">Submit</button>
+            <p>
+                <span class="detail">Submit Rating</span>
+                <select name="rating" class="form-control" ng-model="rating.newRating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="btn" ng-click="submitRating()">Submit</button>
+            </p>   
         </div>
     </div>
 </div>
