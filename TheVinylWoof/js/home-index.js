@@ -79,7 +79,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     };
 })
 
-.controller("albumsController", function ($scope, albumsFactory) {
+.controller("albumsController", function ($scope, albumsFactory, $http) {
     $scope.searchParams = { title: "", genre: "" };
     $scope.data = albumsFactory;
 
@@ -98,7 +98,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
         $http.get("api/albums?genre=" + $scope.searchParams.genre + "&searchString=" + $scope.searchParams.title)
             .then(function (result) {
                 //success
-                $scope.data = result.data;
+                $scope.data.albums = result.data;
             }),
             function () {
                 console.log("error searching albums");
@@ -294,7 +294,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //error
             alert("failed");
         });
-
     }
 
 })
@@ -305,13 +304,14 @@ angular.module("VinylWoofApp", ["ngRoute"])
 
     $scope.albumsGiven;
     $scope.user;
-    $scope.rating = {userId: userId };
+    $scope.rating = { userId: userId };
+    $scope.ratingSubmitted = false;
 
     $scope.submitRating = function () {
         var url = "api/users/" + userId;
         $http.post(url, $scope.rating)
             .then(function () {
-                alert("rating submitted");
+                $scope.ratingSubmitted = true;
             },
             function () {
                 alert("problem submitting rating");

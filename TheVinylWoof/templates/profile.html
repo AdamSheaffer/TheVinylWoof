@@ -30,7 +30,7 @@
                 <span class="detail">Email:</span> 
                 <a href="mailto:{{user.email}}">{{user.email}}</a>
             </p>
-            <p>
+            <p ng-hide="ratingSubmitted">
                 <span class="detail">Submit Rating</span>
                 <select name="rating" class="form-control" ng-model="rating.newRating" required>
                     <option value="1">1</option>
@@ -40,7 +40,10 @@
                     <option value="5">5</option>
                 </select>
                 <button class="btn" ng-click="submitRating()">Submit</button>
-            </p>   
+            </p>
+            <div class="alert alert-success" role="alert" ng-show="ratingSubmitted">
+                Rating Submitted
+            </div>   
         </div>
     </div>
 </div>
