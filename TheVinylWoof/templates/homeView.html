@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="row">
-    <div ng-repeat="album in data" class="col-md-3 item-block">
+    <div ng-repeat="album in data.albums" class="col-md-3 item-block">
         <a href="/#/AlbumDetails/{{album.id}}">
             <img ng-src="{{album.coverLocation}}" alt="Album Cover" class="album-art" />
         </a>

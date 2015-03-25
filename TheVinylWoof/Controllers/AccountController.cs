@@ -157,7 +157,8 @@ namespace TheVinylWoof.Controllers
                     StreetAddress = model.StreetAddress,
                     City = model.City,
                     State = model.State,
-                    Zip = model.Zip};
+                    Zip = model.Zip,
+                    Credits = 100 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

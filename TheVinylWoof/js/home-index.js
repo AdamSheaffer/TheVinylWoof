@@ -26,19 +26,73 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .otherwise({ redirectTo: "/" });
 })
 
-.controller("albumsController", function ($scope, $http) {
-    $scope.searchParams = { title: "", genre: "" };
-    $scope.data = [];
+.factory("albumsFactory", function ($http, $q) {
+    var _albums = [];
+    var _isInit = false;
+    
+    var _isReady = function () {
+        return _isInit;
+    }
 
-    $http.get("/api/albums")
+    var _getForGrabsAlbums = function () {
+
+        var deferred = $q.defer();
+
+        $http.get("/api/albums")
         .then(function (result) {
             //success
-            console.log(result);
-            angular.copy(result.data, $scope.data);
+            angular.copy(result.data, _albums);
+            _isInit = true;
+            deferred.resolve();
         },
         function () {
-            alert("error")
+            deferred.reject();
         });
+
+        return deferred.promise;
+    }
+
+    var _addNewRecord = function (newAlbum) {
+
+        var deferred = $q.defer();
+
+        $http.post("api/albums", newAlbum)
+            .then(function (result) {
+                //Success
+                var newlyAddedAlbum = result.data;
+                _albums.splice(0, 0, newlyAddedAlbum);
+                deferred.resole(newlyAddedAlbum);
+            },
+            function () {
+                //error
+                deferred.reject();
+            });
+
+        return deferred.promise;
+    }
+
+    return {
+        albums: _albums,
+        getForGrabsAlbums: _getForGrabsAlbums,
+        addNewRecord: _addNewRecord,
+        isReady: _isReady
+    };
+})
+
+.controller("albumsController", function ($scope, albumsFactory) {
+    $scope.searchParams = { title: "", genre: "" };
+    $scope.data = albumsFactory;
+
+    if(albumsFactory.isReady() === false) {
+        albumsFactory.getForGrabsAlbums()
+            .then(function () {
+                //Success
+            },
+            function () {
+                //Error
+                console.log("problem getting albums");
+            });
+    }
 
     $scope.searchAlbums = function () {
         $http.get("api/albums?genre=" + $scope.searchParams.genre + "&searchString=" + $scope.searchParams.title)
@@ -47,30 +101,26 @@ angular.module("VinylWoofApp", ["ngRoute"])
                 $scope.data = result.data;
             }),
             function () {
-                alert("error searching albums");
+                console.log("error searching albums");
             }
-    }
+    };
 
 })
 
-.controller("newAlbumController", function ($scope, $http, $location) {
+.controller("newAlbumController", function ($scope, $http, $location, albumsFactory) {
     $scope.newAlbum = {};
 
     $scope.showPreview = false;
 
-    //TODO add functionality to get album art
-
     $scope.save = function () {
-        $http.post("api/albums", $scope.newAlbum)
-            .then(function (result) {
+        albumsFactory.addNewRecord($scope.newAlbum)
+            .then(function () {
                 //Success
-                var newAlbum = result.data;
-                $location.path("/");
-            },
-            function () {
-                //error
-                alert("can't save album");
-            });
+                $location.path('/');
+            }, function () {
+                //Error
+                console.log("error adding album")
+            })
     }
 
     $scope.findCoverArt = function () {
@@ -81,7 +131,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             .then(function (result) {
                 //success
                 var x = result.data;
-                debugger;
                 if (x.message === "Artist not found" || x.message === "Album not found" || x.album.image[3]['#text'] === "") {
                     useDefaultArt();
                 }
@@ -92,7 +141,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             },
             function () {
                 //error
-                debugger;
                 useDefaultArt();
             });
 
@@ -108,7 +156,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
 
 .controller("albumDetailsController", function ($scope, $http, $routeParams, $location) {
     var albumId = $routeParams.id;
-    console.log(albumId);
 
     var userData;
     var albumData;
@@ -116,17 +163,11 @@ angular.module("VinylWoofApp", ["ngRoute"])
     var albumUrl = "/api/albums/" + albumId;
 
     $scope.swapSuccess = false;
-
     $scope.user;
-
     $scope.album;
-
     $scope.currentUser;
-
     $scope.relatedAlbums = [];
-
     $scope.albumCount;
-
     $scope.notEnoughWoofie = false;
 
     $scope.swap = function () {
@@ -166,7 +207,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
             //success
             albumData = result.data;
             $scope.album = albumData[0];
-            console.log($scope.album);
         });
 
     $http.get("api/users/currentUser")
