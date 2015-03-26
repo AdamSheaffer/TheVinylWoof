@@ -180,6 +180,8 @@ textarea {
     width: 228px;
     height: 228px;
     border: 5px solid white;
+    display: block;
+    margin: auto;
 }
 
 .title {

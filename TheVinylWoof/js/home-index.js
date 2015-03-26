@@ -61,7 +61,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
                 //Success
                 var newlyAddedAlbum = result.data;
                 _albums.splice(0, 0, newlyAddedAlbum);
-                deferred.resole(newlyAddedAlbum);
+                deferred.resolve(newlyAddedAlbum);
             },
             function () {
                 //error
@@ -116,6 +116,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
         albumsFactory.addNewRecord($scope.newAlbum)
             .then(function () {
                 //Success
+                console.log("success");
                 $location.path('/');
             }, function () {
                 //Error

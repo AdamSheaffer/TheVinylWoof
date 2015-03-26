@@ -96,6 +96,10 @@ namespace TheVinylWoof.Data
 
         public bool Swap(int albumId, string buyerId)
         {
+            if (buyerId == null)
+            {
+                return false;
+            }
             var album = _ctx.Albums.Where(a => a.Id == albumId).First();
             var seller = _ctx.Users.Where(u => u.Id == album.UserId).First();
             var buyer = _ctx.Users.Where(u => u.Id == buyerId).First();
@@ -123,8 +127,7 @@ namespace TheVinylWoof.Data
 
         public IQueryable<Album> GetAlbumsByTitleAndGenre(string title, string genre)
         {
-            var albums = from a in _ctx.Albums
-                         select a;
+            var albums = _ctx.Albums.Where(a => a.IsSold == false);
 
             if (!String.IsNullOrEmpty(title))
             {
