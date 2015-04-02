@@ -66,9 +66,9 @@ namespace TheVinylWoof.Controllers
         }
 
         [Route("api/albums/{albumid}/user")]
-        public IEnumerable<ApplicationUser> GetSeller(int albumId)
+        public ApplicationUser GetSeller(int albumId)
         {
-            return _repo.GetSeller(albumId);
+            return _repo.GetSeller(albumId).First();
         }
 
         [Route("api/albums")]

@@ -116,7 +116,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         albumsFactory.addNewRecord($scope.newAlbum)
             .then(function () {
                 //Success
-                console.log("success");
                 $location.path('/');
             }, function () {
                 //Error
@@ -199,7 +198,8 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             userData = result.data;
-            $scope.user = userData[0];
+            debugger;
+            $scope.user = userData;
             getRelatedAlbums($scope.user.id);
         });
 
@@ -210,11 +210,11 @@ angular.module("VinylWoofApp", ["ngRoute"])
             $scope.album = albumData[0];
         });
 
-    $http.get("api/users/currentUser")
+    $http.get("api/users/currentuser")
         .then(function (result) {
             //success
             $scope.currentUser = result.data;
-            var userId = $scope.currentUser[0].id;
+            var userId = $scope.currentUser.id;
         },
         function () {
             //error
@@ -230,11 +230,12 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $scope.buyer;
 
     //TODO abstract to auth Factory
-    $http.get("api/users/currentUser")
+    $http.get("api/users/currentuser")
         .then(function (result) {
             //success
-            $scope.currentUser = result.data[0];
-            if (result.data.length === 0) {
+            $scope.currentUser = result.data;
+            debugger;
+            if (!$scope.currentUser.id) {
                 $window.location.href = "Account/Login";
             }
             var id = $scope.currentUser.id;
