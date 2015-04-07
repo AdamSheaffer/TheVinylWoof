@@ -198,7 +198,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             userData = result.data;
-            debugger;
             $scope.user = userData;
             getRelatedAlbums($scope.user.id);
         });
@@ -234,10 +233,6 @@ angular.module("VinylWoofApp", ["ngRoute"])
         .then(function (result) {
             //success
             $scope.currentUser = result.data;
-            debugger;
-            if (!$scope.currentUser.id) {
-                $window.location.href = "Account/Login";
-            }
             var id = $scope.currentUser.id;
             getAlbumsBought(id);
             getAlbumsGiven(id);
@@ -245,6 +240,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
         },
         function () {
             //error
+            $window.location.href = "Account/Login";
             console.log("getting current user failed");
         });
 
@@ -333,7 +329,7 @@ angular.module("VinylWoofApp", ["ngRoute"])
     $http.get('api/users/' + userId)
         .then(function (result) {
             //success
-            $scope.user = result.data[0];
+            $scope.user = result.data;
         },
         function () {
             //error
